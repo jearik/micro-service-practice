@@ -1,5 +1,5 @@
 docker rm -f $(docker ps -aq)
-docker ps | grep "redis" | awk '{ print $1 }' | xargs docker rm -f
+docker ps -a | grep "redis" | awk '{ print $1 }' | xargs docker rm -f
 
 docker build -t 10.5.24.46:80/nscloud/redis:2.8 .
 

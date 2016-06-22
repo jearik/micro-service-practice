@@ -17,6 +17,9 @@ import sys
 import codecs
 from mako.template import Template
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8') 
 
 def templateInvoke(srcFile, dstFile):
     template = Template(filename=srcFile, input_encoding='utf-8',output_encoding='utf-8')

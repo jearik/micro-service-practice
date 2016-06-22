@@ -1,0 +1,43 @@
+
+{
+    "task_nsf_middleware": {"host_list": "{{Atsani_API}};{{Krosa_API}};{{Tembin_API}};{{Omais_API}};{{Higos_API}};{{Etau_API}};{{Hato_API}};{{Hagibis_API}};{{Bailu_API}};{{Choi_Wan_API}}","task_args": ""},
+    
+    "task_Atsani_ldap": {"host_list": "{{Atsani_LDAP}}","task_args": ""},
+    "task_Atsani_api": {"host_list": "{{Atsani_API}}","task_args": "{{Atsani_Redis}} {{Atsani_LDAP}}"},
+    
+    "task_Omais_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Omais_SQL_User}} https://192.168.5.246/svn/cloud/Omais/trunk/storage/full.sql"},
+    "task_Omais_api": {"host_list": "{{Omais_API}}","task_args": "{{pub_MySQL_Master}} {{Omais_SQL_Port}} {{Omais_SQL_User}} {{Omais_SQL_PWD}} {{pub_Redis}} {{Atsani_Redis}} {{API_domain}}"},
+    
+    "task_Higos_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Higos_SQL_User}} https://192.168.5.246/svn/cloud/Higos/trunk/storage/full.sql"},
+    "task_Higos_api": {"host_list": "{{Higos_API}}","task_args": "{{pub_MySQL_Master}} {{Higos_SQL_Port}} {{Higos_SQL_User}} {{Higos_SQL_PWD}} {{pub_Redis}} {{Atsani_Redis}} {{API_domain}} {{Portal_domain}}"},
+    
+    "task_Etau_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Etau_SQL_User}} https://192.168.5.246/svn/cloud/Etau/trunk/api/3rd/full.sql"},
+    "task_Etau_api": {"host_list": "{{Etau_API}}","task_args": "{{pub_MySQL_Master}} {{Etau_SQL_Port}} {{Etau_SQL_User}} {{Etau_SQL_PWD}} {{pub_Redis}} {{pub_Redis_Port}} 0 {{Atsani_Redis}} {{Atsani_Redis_Port}} {{Etau_Cert_Host}} {{Etau_Cert_Port}} {{Etau_Hive_Host}} {{Etau_Hive_Port}} {{Etau_Hive_DB}} {{API_domain}}"},
+    
+    "task_Hato_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Hato_SQL_User}} https://192.168.5.246/svn/cloud/Hato/trunk/api/3rd/full.sql"},
+    "task_Hato_api": {"host_list": "{{Hato_API}}","task_args": "{{pub_MySQL_Master}} {{Hato_SQL_Port}} {{Hato_SQL_User}} {{Hato_SQL_PWD}} {{Atsani_Redis}} {{Atsani_Redis_Port}} {{API_domain}}"},
+    
+    "task_Hagibis_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Hagibis_SQL_User}} https://192.168.5.246/svn/cloud/Hagibis/trunk/api/hagibis/3rd/hagibis.sql"},
+    "task_Hagibis_api": {"host_list": "{{Hagibis_API}}","task_args": "start {{pub_MySQL_Master}} {{Hagibis_SQL_Port}} {{Hagibis_SQL_User}} {{Hagibis_SQL_PWD}} {{pub_Redis}} {{pub_NFS}} '\"{{Portal_Web}}\"'"},
+    "task_Hagibis_web": {"host_list": "{{Hagibis_API}}","task_args": ""},
+
+    "task_Bailu_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Bailu_SQL_User}} https://192.168.5.246/svn/cloud/Bailu/trunk/api/src/report_api/sql/full.sql"},
+    "task_Bailu_api": {"host_list": "{{Bailu_API}}","task_args": "{{pub_MySQL_Master}} {{Bailu_SQL_Port}} {{Bailu_SQL_User}} {{Bailu_SQL_PWD}} {{Malakas_API}} {{pub_NFS}} {{API_domain}} {{Atsani_Redis}}"},
+    "task_Bailu_web": {"host_list": "{{Bailu_API}}","task_args": "'\"{{Bailu_API}}\"'"},
+    
+    "task_Choi_Wan_run_sql": {"host_list": "{{pub_MySQL_Master}}","task_args": "{{Choi_Wan_SQL_User}} https://192.168.5.246/svn/cloud/Choi_Wan/trunk/api/src/3rd/full.sql"},
+    "task_Choi_Wan_api": {"host_list": "{{Choi_Wan_API}}","task_args": "{{pub_MySQL_Master}} {{Choi_Wan_SQL_Port}} {{Choi_Wan_SQL_User}} {{Choi_Wan_SQL_PWD}} {{Malakas_API}} {{Choi_Wan_MQ}} {{Choi_Wan_Redis}} {{Choi_Wan_Redis}} {{Choi_Wan_Worker}}"},
+    "task_Choi_Wan_web": {"host_list": "{{Choi_Wan_API}}","task_args": "'\"{{Choi_Wan_API}}\"'"},
+    
+    "task_Krosa_api": {"host_list": "{{Krosa_API}}","task_args": "{{API_domain}} {{Atsani_Redis}}"},
+    "task_Krosa_web": {"host_list": "{{Rsync_IP}}","task_args": ""},
+    
+    "task_Tembin_api": {"host_list": "{{Tembin_API}}","task_args": "{{API_domain}} {{Atsani_Redis}}"},
+    "task_Tembin_web": {"host_list": "{{Rsync_IP}}","task_args": ""},
+    
+    "task_DMZ": {"host_list": "{{Portal_Web}}","task_args": "{{Rsync_IP}}"},
+    "task_DMZ_SYNC": {"host_list": "{{Rsync_IP}}","task_args": "'\"{{Portal_Web}}\"'"},
+    
+    "task_Tembin_proxy": {"host_list": "{{Portal_Web}}","task_args": "{{Portal_domain}} {{PAMC_domain}} {{API_domain}} '\"{{Krosa_API}}\"' '\"{{Tembin_API}}\"' '\"{{Omais_API}}\"' '\"{{Higos_API}}\"' '\"{{Etau_API}}\"' '\"{{Hato_API}}\"' '\"{{Hagibis_API}}\"' '\"{{Bailu_API}}\"' '\"{{Choi_Wan_API}}\"' '\"{{Atsani_API}}\"'"}
+}
+

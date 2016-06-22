@@ -1,0 +1,14 @@
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.89 GATHERING FACTS<br/>
+<div style="background-color:green;" class="toggle" id="9648ef8b-d491-4666-8eb0-21d4521d3ced">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_9648ef8b-d491-4666-8eb0-21d4521d3ced">{<br/>    "cmd": "date && echo 0123456789 && sleep 10", <br/>    "end": "2015-06-26 15:08:33.938556", <br/>    "stdout": "Fri Jun 26 15:08:23 CST 2015\n0123456789", <br/>    "changed": true, <br/>    "start": "2015-06-26 15:08:23.933835", <br/>    "delta": "0:00:10.004721", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo 0123456789 && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="0200e457-5265-4efe-ab56-5b4fb9c2aad0">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_0200e457-5265-4efe-ab56-5b4fb9c2aad0">{<br/>    "msg": "{u'changed': True, u'end': u'2015-06-26 15:08:33.938556', u'stdout': u'Fri Jun 26 15:08:23 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-26 15:08:23.933835', u'stderr': u'', u'delta': u'0:00:10.004721', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Fri Jun 26 15:08:23 CST 2015', u'0123456789'], u'warnings': []}", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"{u'changed': True, u'end': u'2015-06-26 15:08:33.938556', u'stdout': u'Fri Jun 26 15:08:23 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-26 15:08:23.933835', u'stderr': u'', u'delta': u'0:00:10.004721', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Fri Jun 26 15:08:23 CST 2015', u'0123456789'], u'warnings': []}\""<br/>    }<br/>}</div><br/>
+<div style="background-color:red;" class="toggle" id="8b963ed7-fd9d-47cb-bc9b-4b7e9441c4a0">RUNNER_ON_FAILED 10.20.0.89</div><div style="display:none;" id="pad_8b963ed7-fd9d-47cb-bc9b-4b7e9441c4a0">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-26 15:08:34.250171", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-26 15:08:34.248446", <br/>    "delta": "0:00:00.001725", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>

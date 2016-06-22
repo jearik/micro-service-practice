@@ -1,0 +1,14 @@
+docker rm -f $(docker ps -aq)
+docker ps -a | grep "django" | awk '{ print $1 }' | xargs docker rm -f
+
+docker build -t 10.5.24.46:80/nscloud/django:1.8.3 .
+
+docker run -it -d --name=django --privileged=true -p 80:80 -p 443:443 -p 2222:22 \
+    -e 3A_MYSQL_DATABASE="db_django" \
+    -e 3A_MYSQL_USER="mysite" \
+    -e 3A_MYSQL_PASSWORD="Admin@123" \
+    -e 3A_MYSQL_HOST="10.5.24.66" \
+    -e 3A_MYSQL_PORT="3306" \
+    -e 3A_ADMIN_PASSWORD="Admin@123" \
+    -e 3A_MODULE_NAME="3a" \
+    10.5.24.46:80/nscloud/django:1.8.3

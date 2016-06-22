@@ -1,0 +1,14 @@
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.88 GATHERING FACTS<br/>
+<div style="background-color:green;" class="toggle" id="369d5de0-2df0-4a95-9dfd-e9a60bf1b113">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_369d5de0-2df0-4a95-9dfd-e9a60bf1b113">{<br/>    "cmd": "date && echo && sleep 10", <br/>    "end": "2015-06-28 22:56:52.708961", <br/>    "stdout": "Sun Jun 28 22:56:42 CST 2015", <br/>    "changed": true, <br/>    "start": "2015-06-28 22:56:42.704037", <br/>    "delta": "0:00:10.004924", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="63c6c9a4-fb67-4a09-a20d-12e055bf9935">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_63c6c9a4-fb67-4a09-a20d-12e055bf9935">{<br/>    "msg": "", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"\""<br/>    }<br/>}</div><br/>
+<div style="background-color:red;" class="toggle" id="71ea3fc8-c266-4931-bd5a-d12ebc39444f">RUNNER_ON_FAILED 10.20.0.88</div><div style="display:none;" id="pad_71ea3fc8-c266-4931-bd5a-d12ebc39444f">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-28 22:56:53.044777", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-28 22:56:53.042312", <br/>    "delta": "0:00:00.002465", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>

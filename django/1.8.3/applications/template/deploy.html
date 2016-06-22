@@ -1,0 +1,1333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="Deploy" name="keywords" />
+	<meta content="Deploy" name="description" />
+	<meta name="generator" content="Deploy"/>
+	<title>Deploy-Malakas</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/demo/nav/docs.min.css" type="text/css"/>-->
+	<link rel="stylesheet" href="/static/js/model/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/patch.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/docs.min.css" type="text/css"/>
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		/* footer css #f8f8f8; */
+		.pb-page-footer{
+			width: 100%;
+			color: gray;
+			background-color: #3C3C3C;
+			#border-top: 1px solid #e7e7e7;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.pb-page-footer a, .pb-page-footer a:visited {
+			color: #777;
+			text-decoration: none;
+		}
+		.pb-page-footer a:active, .pb-page-footer a:hover, .pb-page-footer a:focus{
+			color: white;
+			text-decoration: none;
+		}
+		body {
+			padding-bottom:0px;
+		}
+		.pb-page-footer h4 {
+			color:white;
+		}
+		
+		/* job center body */
+		.form-control {
+			height: 28px;
+		}
+		.keep-open {
+			height: 28px;
+		}
+		div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-right.btn-group.pull-right > div > button {
+			height: 28px;
+		}
+		div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list {
+			display: inline-block !important;
+		}
+		div.fixed-table-container > div.fixed-table-pagination > div.pull-right.pagination {
+			display: inline-block !important;
+		}
+		.fixed-table-container {
+			border: none;
+		}
+		
+		
+		/* new create */
+		body{margin-top:50px;}
+		.glyphicon { margin-right:10px; }
+		.panel-body { padding:0px; }
+		.panel-body table tr td { padding-left: 15px }
+		.panel-body .table {margin-bottom: 0px; }
+		/* blogitem style*/
+		.blogitem {
+			margin-top:10px;
+			border-bottom: 1px solid #E3E3E3;
+		}
+		/* bot-links style */
+		.bot-links{float: left; width: 100%;}
+		/* bot-links-all style */
+		.bot-links-all{float: left; width: 100%;}
+		.bot-links-all a{margin-bottom:5px;font-size: 18px;}
+		.bot-links a .badge:hover{background-color: #F87B00;}
+		.bot-links-all a .badge:hover{background-color: #F87B00;}
+		/*.bot-links a{display: inline-block; padding: 5px; background: #ccc; font-size: 12px; margin-bottom: 5px; color: #9c9c9c; text-decoration:none;}*/
+		/* search style*/
+		.stylish-input-group .input-group-addon{
+			background: white !important; 
+		}
+		.stylish-input-group .form-control{
+			border-right:0; 
+			box-shadow:0 0 0; 
+			border-color:#ccc;
+		}
+		.stylish-input-group button{
+			border:0;
+			background:transparent;
+		}
+		/* recommendlist style*/
+		.recommendlist li {
+			margin-bottom:10px;
+		}
+		/* filter new blog style*/
+		.filter {
+			margin-top: 10px;
+			padding: 5px;
+			padding-right:10px;
+			border: 1px solid #eee;
+		}
+		/**/
+		#id_addTag {
+			border: 0;
+			background: none;
+			/** belows styles are working good */
+			padding: 2px 5px;
+			margin-top: 2px;
+			position: relative;
+			left: -28px;
+			/* IE7-8 doesn't have border-radius, so don't indent the padding */
+			margin-bottom: 0;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			color:#D9230F;
+			z-index: 3;   
+		}
+		.twitter-typeahead {
+			width:100%;
+		}
+        
+        
+        
+        /* dropdown-large-menu style */
+		.dropdown-large {
+			position: static !important;
+		}
+		.dropdown-menu-large {
+			margin-left: 300px;
+			margin-right: 16px;
+			padding: 20px 0px;
+		}
+		.dropdown-menu-large > li > ul {
+			padding: 0;
+			margin: 0;
+		}
+		.dropdown-menu-large > li > ul > li {
+			list-style: none;
+		}
+		.dropdown-menu-large > li > ul > li > a {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: normal;
+			line-height: 1.428571429;
+			color: #333333;
+			white-space: normal;
+		}
+		.dropdown-menu-large > li ul > li > a:hover,
+		.dropdown-menu-large > li ul > li > a:focus {
+			text-decoration: none;
+			color: #262626;
+			background-color: #f5f5f5;
+		}
+		.dropdown-menu-large .disabled > a,
+		.dropdown-menu-large .disabled > a:hover,
+		.dropdown-menu-large .disabled > a:focus {
+			color: #999999;
+		}
+		.dropdown-menu-large .disabled > a:hover,
+		.dropdown-menu-large .disabled > a:focus {
+			text-decoration: none;
+			background-color: transparent;
+			background-image: none;
+			filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+			cursor: not-allowed;
+		}
+		.dropdown-menu-large .dropdown-header {
+			color: #428bca;
+			font-size: 16px;
+		}
+		@media (max-width: 800px) {
+			.dropdown-menu-large {
+				margin-left: 0 ;
+				margin-right: 0 ;
+			}
+			.dropdown-menu-large > li {
+				margin-bottom: 30px;
+			}
+			.dropdown-menu-large > li:last-child {
+				margin-bottom: 0;
+			}
+			.dropdown-menu-large .dropdown-header {
+				padding: 3px 15px !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="id_header" style="width:100%;"></div>
+	
+	<!-- <div id="id_loading" style="display:none;">
+		<p style="text-align:center;"><img src="/static/images/loading.gif"></img></p>
+		<p style="text-align:center;">Deploying，Please wait a moment...</p>
+	</div> -->
+	<div class="container-fluid" style="margin-bottom: 10px;">
+		<div class="row">
+			<div class="col-sm-12 col-md-12" style="min-height:730px;">
+				<!--<div class="well">
+					<h4 class="pull-left">天才在于积累, 今天, 你积累了吗?</h4>
+					<button type="submit" class="btn btn-default">我要积累</button>
+				</div>-->
+                <!-- <h4 class="page-header" style="margin-top:20px;">DeployStatus</h4>
+                <div id="container" style="width:150px;height:150px;margin-top:20px;">
+                    <div id="id_loading" style="display:none;">
+                        <p style="text-align:center;"><img src="/static/images/loading.gif"></img></p>
+                        <p style="text-align:center;">Loading，Please wait a moment...</p>
+                    </div>
+                </div> -->
+                <!-- <h4 class="page-header" style="margin-top:30px;">DeployList</h4> -->
+				<div class="container-fluid">
+					<div class="tabable" style="margin-top:40px;" id="items_tab">
+						<ul class="nav nav-tabs" id="pageTab"><!-- id="item_nav"-->
+							<li class="active"><a href="#deploy_list" data-toggle="tab">Deploy List</a></li>
+							<!-- <li><a href="#new_deploy" data-toggle="tab">New Deploy</a></li> -->
+                            <!-- <li><a href="#new_deploy_user" data-toggle="tab">PAAS Parameters Generator</a></li> -->
+                            <li><a href="#deploy_status" data-toggle="tab">Dispatch Status</a></li>
+						</ul>
+						<div class="tab-content" id="pageTabContent">
+							<div class="tab-pane active" id="deploy_list">
+								<div class="container-fluid" style="margin-top:20px;" id="id_blog_list">
+                                    <div class="btn-group" class="fixed-table-toolbar" style="margin-bottom: -40px">
+                                        <button type="button" class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            New Deploy<span class="caret"></span></button>  &nbsp;&nbsp;<a href="/help/#id_help_warning" style="vertical-align: middle;">Deploy Failed ?</a>
+                                        <ul class="dropdown-menu">
+                                            <!-- <li><a href="/newJobBasic/">Basic</a></li>
+                                            <li><a href="/newJobScript/">Script</a></li>
+                                            <li><a href="/newJobPlaybook/">Playbook</a></li> -->
+                                                {% for item in tmp_keys %}
+                                                    <li><a href="/deployNext/?type=new&service={{item | urlencode}}">{{item}}</a></li>
+                                                {% endfor %}
+                                        </ul>
+                                    </div>
+									<table id="url_tbl" data-toggle="table"
+										data-url="/getDeploys/"
+										data-classes="table table-hover table-condensed" 
+										data-striped="true"
+										data-row-style="rowStyle" 
+										data-sort-name="id" 
+										data-sort-order="desc" 
+										data-show-header="true" 
+										data-query-params-type="limit" 
+										data-show-pagination-switch="true" 
+										data-pagination="true" 
+										data-smart-display="true"
+										data-side-pagination="server" 
+										data-page-number="1" 
+										data-page-size="15" 
+										data-page-list="[5, 10, 15, 20, 50, 100]" 
+										data-search="true" 
+										data-show-refresh="true" 
+										data-show-toggle="true" 
+										data-show-columns="true" 
+										data-click-to-select="true" 
+										data-select-item-name="myRadioName" 
+										data-single-select="true" 
+										data-toolbar="#toolbar" >
+										<!--data-height="200"-->
+										<thead>
+											<tr>
+												<th data-field="id" data-sortable="true" data-halign="center" data-align="left">ID</th>
+												<th data-field="deployName" data-sortable="true" data-halign="center" data-align="left">DeployName</th>
+												<th data-field="serviceName" data-sortable="true" data-halign="center" data-align="left">ServiceName</th>
+                                                <th data-field="submit" data-sortable="true" data-halign="center" data-align="left">Submit</th>
+												<!-- <th data-field="module_name" data-sortable="true" data-halign="center" data-align="left">Module</th> -->
+												<!--<th data-field="module_args" data-sortable="true" data-halign="center" data-align="left">Args</th>
+												<th data-field="pattern" data-sortable="true" data-halign="center" data-align="left">Pattern</th>
+												<th data-field="forks" data-sortable="true" data-halign="center" data-align="left">Forks</th>
+												<th data-field="script_content" data-sortable="true" data-halign="center" data-align="left">Script</th>
+												<th data-field="playbook_content" data-sortable="true" data-halign="center" data-align="left">Playbook</th>
+												<th data-field="hosts_list" data-sortable="true" data-halign="center" data-align="left">HostList</th>
+												<th data-field="extra_vars" data-sortable="true" data-halign="center" data-align="left">ExtraVars</th>
+												<th data-field="only_tags" data-sortable="true" data-halign="center" data-align="left">Tags</th>-->
+												<th data-field="taskStatus" data-sortable="true" data-halign="center" data-align="left" data-formatter="deployStatusFormatter">Status</th>
+												<!-- <th data-field="job_submit" data-sortable="true" data-halign="center" data-align="left">Submit</th>
+												<th data-field="job_submit_time" data-sortable="true" data-halign="center" data-align="left">SubmitTime</th> -->
+												<th data-field="task_start_time" data-sortable="true" data-halign="center" data-align="left">StartTime</th>
+												<th data-field="task_end_time" data-sortable="true" data-halign="center" data-align="left">EndTime</th>
+												<!--<th data-field="job_log" data-sortable="true" data-halign="center" data-align="left">Logs</th>-->
+												<th data-field="operation" data-halign="center" data-align="center" data-formatter="operationFormatter" data-visible="true">Operation</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+							
+                            <div class="tab-pane" id="deploy_status">
+                                <p class="pull-right"><a href="javascript:disGearInfoChart();"><i class="glyphicon glyphicon-refresh"></i>刷新</a></p>
+								<div class="container" style="margin-top:20px;">
+									<div class="container" id="container" style="min-height:500px;margin-top:30px;min-width:700px;">
+                                        <div id="id_loading" style="display:none;">
+                                            <p style="text-align:center;"><img src="/static/images/loading.gif"></img></p>
+                                            <p style="text-align:center;">Loading，Please wait a moment...</p>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--<div class="blogitem">
+						<div class="media">
+							<div class="media-body">
+								<a href="#"><h3 class="media-heading">Java设计模式之十五（桥接模式）</h3></a>
+								<ul class="list-inline list-unstyled">
+									<li><span><i class="glyphicon glyphicon-calendar"></i>2015-03-03 10:02:20</span></li>
+									<li>|</li>
+									<span><i class="glyphicon glyphicon-eye-open"></i> 3 views</span>
+									<li>|</li>
+									<span><i class="glyphicon glyphicon-thumbs-up"></i> 18 thumbs</span>
+								</ul>
+								<ul class="list-inline list-unstyled">
+									<li>
+										<div class="bot-links">
+											<a href="#"><span class="badge">Java</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="blogitem">
+						<div class="media">
+							<div class="media-body">
+								<a href="#"><h3 class="media-heading">Java设计模式之十五（桥接模式）</h3></a>
+								<ul class="list-inline list-unstyled">
+									<li><span><i class="glyphicon glyphicon-calendar"></i>2015-03-03 10:02:20</span></li>
+									<li>|</li>
+									<span><i class="glyphicon glyphicon-eye-open"></i> 3 views</span>
+									<li>|</li>
+									<span><i class="glyphicon glyphicon-thumbs-up"></i> 18 thumbs</span>
+								</ul>
+								<ul class="list-inline list-unstyled">
+									<li>
+										<div class="bot-links">
+											<a href="#"><span class="badge">Java</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+											<a href="#"><span class="badge">设计模式</span></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="id_footer" style="width:100%;"></div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+					<h4 class="modal-title" id="myModalLabel">Info</h4>
+				</div>
+				<div class="modal-body text-center">
+					Operation Success
+				</div>
+				<!--<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	
+	<div id="alerts" style='position:fixed;top:60px;right:1%'></div>
+	
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/model/Highcharts-4.0.4/js/highcharts.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script src="/static/js/model/moment-develop/min/moment-with-locales.min.js"></script>
+	<script src="/static/js/model/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(e) {
+            var header_url = "/header/";
+            var footer_url = "/footer/";
+            $('#id_header').load(header_url, function(){
+                    $("#id_menu_deploy").addClass("active");
+                }
+            );
+            $('#id_footer').load(footer_url);
+		});
+		//初始菜单样式
+		/*$(document).ready(function(){
+			var url = decodeURIComponent(location.href);
+			var cat = parseRequestURL(url, 'cat');
+			var alist = new Array();
+			var flag = 0;
+			$('.panel-body .table tr td a').each(function(){
+				//alert($(this).text());
+				//alert(cat);
+				alist.push($(this));
+				if($(this).text() == cat) {
+					//$(this).parent().parent().addClass("active");
+					$(this).parent().parent().parent().parent().parent().parent().addClass("in");
+					flag = 1;
+				}
+			});
+			if(flag == 0) {
+				//alist[0].parent().parent().addClass("active");
+				alist[0].parent().parent().parent().parent().parent().parent().addClass("in");
+			}
+		});
+		$(document).ready(function() {
+			//Remove a Tag
+			$('#id_add_tag_list').on('click', 'a', function() {
+				$(this).remove();
+				return false;
+			});
+		});*/
+		
+		/**********************************************************************************************
+		*****账号下拉列表初始化
+		**********************************************************************************************/
+		//表格行style设置
+		function rowStyle(row, index) {
+			var classes = ['active', 'success', 'info', 'warning', 'danger'];
+			/*if (index % 2 === 0 && index / 2 < classes.length) {
+				return {
+					classes: classes[index / 2]
+				};
+			}*/
+			/*if (row.job_status == 5) {
+				return {
+					classes: 'danger'
+				};
+			}*/
+			return {};
+		}
+		//表格列data设置
+		function moduleNameFormatter(value) {
+			return '<a href="/helpModuleInfo/?module='+value+'"><b>'+value+'</b></a>';
+		}
+		function jobTypeFormatter(value) {
+			if (value == 0) {
+				return "Basic";
+			} else if (value == 1) {
+				return "Script";
+			} else if (value == 2) {
+				return "Playbook";
+			}
+		}
+		function deployStatusFormatter(value) {
+			if (value == 0) {
+				return "<img src='/static/images/r_loading.gif' title='initial'>";
+			} else if (value == 1) {
+				return "<img src='/static/images/r_running.gif' title='running'>";
+			} else if (value == 2) {
+				return "<img src='/static/images/r_exception.png' title='exception'>";
+			} else if (value == 3) {
+				return "<img src='/static/images/r_success.png' title='success'>";
+			}
+		}
+		//表格列data设置
+		function operationFormatter(value) {
+			//return '<a href="#"><i class="glyphicon glyphicon-cutlery"></i>查看</a> <a href="#"><i class="glyphicon glyphicon-cutlery"></i>修改</a>';
+			//return '<i class="glyphicon glyphicon-cutlery"></i> ' ;//+ value;
+			//return '<a href="javascript:queryDeployInfo(' + value.id + ')"><i class="glyphicon glyphicon-search"></i>查看详情</a>';
+			return '<a href="/deployInfo/?deploy_id='+value.id+'"><i class="glyphicon glyphicon-search"></i>Details</a> | ' +
+				'<a onclick="relaunch(\''+value.id+'\', \''+value.service+'\', \''+value.submit+'\');" href="javascript:void(0);"><i class="glyphicon glyphicon-plane"></i>ReLaunch</a>';
+			/*if (value.job_type == 0 || value.job_type == 1) {
+				return "<a href='/getJobRes/?job_id="+value.id+"'>执行结果</a>";
+			} else if (value.job_type == 2 && value.job_status < 4) {
+				return "<a href='/getJobRes/?job_id="+value.id+"'>执行结果</a>";
+			} else if (value.job_type == 2 && value.job_status >= 4) {
+				return "<a href='/getJobRes/?job_id="+value.id+"'>执行结果</a> | " +
+				"<a href='/getPlaybookJobLog/?job_id="+value.id+"'>详细日志</a>";
+			}*/
+		}
+        function relaunch(id, service, submit) {
+            var username = $("#id_username").text();
+            /* if (submit != username && submit != "null") {
+                addAlert("Warning: " + "Permission Denied, Only Your Private Deploy Allowed To Relaunch !");
+                return false;
+            } */
+            window.location = '/deployNext/?type=redo&deploy_id='+id+'&service='+encodeURI(service);
+        }
+		//表格index设置
+		function runningFormatter(value, row, index) {
+			return index;
+		}
+		//表格复选设置
+		function stateFormatter(value, row, index) {
+			if (index === 2) {
+				return {
+					disabled: true
+				};
+			}
+			if (index === 0) {
+				return {
+					disabled: true,
+					checked: true
+				}
+			}
+			return value;
+		}
+		//表格分页查询设置
+		function queryParams() {
+			return {
+				limit: 5,
+				offset: 0,
+				//search: 
+				sort: 'id',
+				order: 'desc'
+			};
+		}
+		/*
+		$(document).ready(function() {
+			$('.page-list').css('display','inline-block'); 
+			$('.pagination').css('display','inline-block'); 
+			$('.page-list').css({visibility,"visible"});
+			$('.pagination').css({visibility,"visible"});
+		});*/
+		/*$(document).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+				format: 'YYYY-MM-DD',
+				useCurrent: true,
+				calendarWeeks: true,
+				showTodayButton: true,
+				showClear: true
+			});
+		});
+		$(document).ready(function() {
+			initAccountList();
+		});*/
+		function initAccountList() {
+			$.when(queryAccounts()).done(function(data){
+				$.each(data,function(n,value) {  
+					$("#id_account_select").append('<option value="' + value + '">' + value + '</option>');
+				});
+			});
+		}
+		function queryAccounts() {
+			var metricsID = parseRequestURL("metricsID");
+			//alert(metricsID);
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAccounts/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: {metricsID:metricsID},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		/**********************************************************************************************
+		*****账户点击率监控曲线
+		**********************************************************************************************/
+		function queryAccountInfoChart() {
+			var date = $("#datetimepicker1 input").val();
+			alert(date);
+			var account = $("#id_account_select option:selected").val();
+			if(account == "NULL") {
+				alert("请选择查询账号");
+				return;
+			}
+			var categories = new Array();
+			var data = new Array();
+			data[0] = new Array();
+			data[1] = new Array();
+			data[2] = new Array();
+			data[3] = new Array();
+			$.each(accountInfo,function(i,item) {
+				$.each(item,function(j,itemitem) {  
+					if(itemitem.accountName == account) {
+						categories.push(itemitem.datetime);
+						data[0].push(Number(itemitem.clickrate[0]));
+						data[1].push(Number(itemitem.clickrate[1]));
+						data[2].push(Number(itemitem.clickrate[2]));
+						data[3].push(Number(itemitem.clickrate[3]));
+					}
+				});
+			});
+			/*alert(data[0]);
+			alert(data[1]);
+			alert(data[2]);
+			alert(data[3]);*/
+			disStatChart(categories, data);
+		}
+		/*$(document).ready(function() {
+			initAlarmTrendChart();
+		});
+		function initAlarmTrendChart(){
+			$('#alarmTrendLoading').show();
+			$.when(queryAlarmTrendData()).done(function(data){
+				$('#alarmTrendLoading').hide();
+				disAlarmTrendChart(data.date, data.data);
+			});
+		}
+		function queryAlarmTrendData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAlarmDayperiod/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}*/
+		function disStatChart(categories, data) {
+			$('#container_account_clickrate').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '账户点击率监控曲线'
+				},
+				subtitle: {
+					text: '今天-前一周-前两周-前三周'
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: '次数/次'
+					}
+				},
+				tooltip: {
+					pointFormat: '<b>{series.name} : {point.y}</b>次 ',
+					shared: true,
+					useHTML: true
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: '今天',
+					data: data[0]
+
+				}, {
+					name: '前一周',
+					data: data[1]
+
+				}, {
+					name: '前两周',
+					data: data[2]
+
+				}, {
+					name: '前三周',
+					data: data[3]
+
+				}]
+			});
+		}
+		function parseRequestURL(paras) {
+			var url = location.href;
+			var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+			var paraObj = {} 
+			for (i=0; j=paraString[i]; i++){ 
+				paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+			} 
+			var returnValue = paraObj[paras.toLowerCase()]; 
+			if(typeof(returnValue)=="undefined"){ 
+				return ""; 
+			}else{ 
+				return returnValue; 
+			} 
+		}
+		
+		
+		function addAlert(message) {
+			$('#alerts').append(
+				'<div class="alert alert-danger alert-dismissible fade in" style="min-width:300px;">' +
+					'<button type="button" class="close" data-dismiss="alert">' +
+					'&times;</button>' + message + '</div>');
+		}
+		/*$(document).ready(function(){
+			var tips_taskParamList = 'Enter taskList Params, eg:\n\
+{\n\
+	"task_A": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_B": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_C": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_D": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_E": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_F": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_G": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_H": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"},\n\
+	"task_I": {"host_list":"10.5.24.12;10.5.24.13","task_args":"123456789 987654321"}\n\
+}\n';
+			document.getElementById('id_taskParamList').value = tips_taskParamList;
+		});*/
+		
+		function submitJobDeploy() {
+			var request = {};
+			var serviceName = $("#id_serviceName_select option:selected").val();
+			if(serviceName == "NULL") {
+				addAlert("ParamException: " + "ServiceName must be selected.");
+				return false;
+			}
+			
+			var deployName = $('#id_deployName_input').val();
+			if(deployName == "") {
+				addAlert("ParamException: " + "DeployName must not be null.");
+				return false;
+			}
+			
+			var taskParamList = $('#id_taskParamList').val();
+			try {
+				taskParamList = jQuery.parseJSON(taskParamList);
+			} catch (error) {
+				addAlert("ParamException: " + "TaskParamList not a valid json format string.");
+				return false;
+			}
+			if (!taskParamList && typeof(taskParamList)!="undefined" && taskParamList!=0) {
+				addAlert("ParamException: " + "TaskParamList should not be null. eg: {}");
+				return false;
+			}
+			if (typeof(taskParamList) != "object") {
+				addAlert("ParamException: " + "TaskParamList not a valid json format string.");
+				return false;
+			}
+			request['serviceName'] = serviceName;
+			request['deployName'] = deployName;
+			request['taskParamList'] = taskParamList;
+			//alert(JSON.stringify(request));
+			
+			$.when(submitDeploy(request)).done(function(data){
+				if(data.ERRORCODE == 0) {
+					window.location.href = "/deploy/";
+				} else {
+					addAlert(data.CH + " : " + data.msg);
+				}
+			});
+			return false;
+		}
+        function submitJobDeployByUser() {
+            var request = {};
+			var serviceName = $("#id_serviceName_select_user option:selected").val();
+			if(serviceName == "NULL") {
+				addAlert("ParamException: " + "ServiceName must be selected.");
+				return false;
+			}
+			
+			var deployName = $('#id_deployName_input_user').val();
+			if(deployName == "") {
+				addAlert("ParamException: " + "DeployName must not be null.");
+				return false;
+			}
+			
+			var taskParamList = {};
+            var Env_Type = $("#id_Env_Type_select option:selected").val();
+			if(Env_Type == "NULL") {
+				addAlert("ParamException: " + "Env_Type must be selected.");
+				return false;
+			}
+            taskParamList["Env_Type"] = Env_Type;
+            taskParamList["Malakas_API"] = $("#id_Malakas_API").val();
+taskParamList["pub_NFS"] = $("#id_pub_NFS").val();
+taskParamList["pub_Redis"] = $("#id_pub_Redis").val();
+taskParamList["pub_Redis_Port"] = $("#id_pub_Redis_Port").val();
+taskParamList["pub_MySQL_Master"] = $("#id_pub_MySQL_Master").val();
+taskParamList["pub_MySQL_Slave"] = $("#id_pub_MySQL_Slave").val();
+taskParamList["LVS_IP"] = $("#id_LVS_IP").val();
+taskParamList["API_domain"] = $("#id_API_domain").val();
+taskParamList["Portal_domain"] = $("#id_Portal_domain").val();
+taskParamList["PAMC_domain"] = $("#id_PAMC_domain").val();
+taskParamList["Atsani_Redis"] = $("#id_Atsani_Redis").val();
+taskParamList["Atsani_Redis_Port"] = $("#id_Atsani_Redis_Port").val();
+taskParamList["Atsani_LDAP"] = $("#id_Atsani_LDAP").val();
+taskParamList["Atsani_API"] = $("#id_Atsani_API").val();
+taskParamList["Portal_Web"] = $("#id_Portal_Web").val();
+taskParamList["Rsync_IP"] = $("#id_Rsync_IP").val();
+taskParamList["Krosa_API"] = $("#id_Krosa_API").val();
+taskParamList["Tembin_API"] = $("#id_Tembin_API").val();
+taskParamList["Omais_API"] = $("#id_Omais_API").val();
+taskParamList["Omais_SQL_Port"] = $("#id_Omais_SQL_Port").val();
+taskParamList["Omais_SQL_User"] = $("#id_Omais_SQL_User").val();
+taskParamList["Omais_SQL_PWD"] = $("#id_Omais_SQL_PWD").val();
+taskParamList["Higos_API"] = $("#id_Higos_API").val();
+taskParamList["Higos_SQL_Port"] = $("#id_Higos_SQL_Port").val();
+taskParamList["Higos_SQL_User"] = $("#id_Higos_SQL_User").val();
+taskParamList["Higos_SQL_PWD"] = $("#id_Higos_SQL_PWD").val();
+taskParamList["Etau_Cert_Host"] = $("#id_Etau_Cert_Host").val();
+taskParamList["Etau_Cert_Port"] = $("#id_Etau_Cert_Port").val();
+taskParamList["Etau_Hive_Host"] = $("#id_Etau_Hive_Host").val();
+taskParamList["Etau_Hive_Port"] = $("#id_Etau_Hive_Port").val();
+taskParamList["Etau_Hive_DB"] = $("#id_Etau_Hive_DB").val();
+taskParamList["Etau_API"] = $("#id_Etau_API").val();
+taskParamList["Etau_SQL_Port"] = $("#id_Etau_SQL_Port").val();
+taskParamList["Etau_SQL_User"] = $("#id_Etau_SQL_User").val();
+taskParamList["Etau_SQL_PWD"] = $("#id_Etau_SQL_PWD").val();
+taskParamList["Hato_API"] = $("#id_Hato_API").val();
+taskParamList["Hato_SQL_Port"] = $("#id_Hato_SQL_Port").val();
+taskParamList["Hato_SQL_User"] = $("#id_Hato_SQL_User").val();
+taskParamList["Hato_SQL_PWD"] = $("#id_Hato_SQL_PWD").val();
+taskParamList["Hagibis_API"] = $("#id_Hagibis_API").val();
+taskParamList["Hagibis_SQL_Port"] = $("#id_Hagibis_SQL_Port").val();
+taskParamList["Hagibis_SQL_User"] = $("#id_Hagibis_SQL_User").val();
+taskParamList["Hagibis_SQL_PWD"] = $("#id_Hagibis_SQL_PWD").val();
+taskParamList["Bailu_API"] = $("#id_Bailu_API").val();
+taskParamList["Bailu_SQL_Port"] = $("#id_Bailu_SQL_Port").val();
+taskParamList["Bailu_SQL_User"] = $("#id_Bailu_SQL_User").val();
+taskParamList["Bailu_SQL_PWD"] = $("#id_Bailu_SQL_PWD").val();
+taskParamList["Choi_Wan_API"] = $("#id_Choi_Wan_API").val();
+taskParamList["Choi_Wan_SQL_Port"] = $("#id_Choi_Wan_SQL_Port").val();
+taskParamList["Choi_Wan_SQL_User"] = $("#id_Choi_Wan_SQL_User").val();
+taskParamList["Choi_Wan_SQL_PWD"] = $("#id_Choi_Wan_SQL_PWD").val();
+taskParamList["Bailu_Worker"] = $("#id_Bailu_Worker").val();
+taskParamList["Choi_Wan_Redis"] = $("#id_Choi_Wan_Redis").val();
+taskParamList["Choi_Wan_MQ"] = $("#id_Choi_Wan_MQ").val();
+taskParamList["Choi_Wan_Worker"] = $("#id_Choi_Wan_Worker").val();
+            
+            
+            
+			/*request['serviceName'] = serviceName;
+			request['deployName'] = deployName;
+			request['taskParamList'] = taskParamList;*/
+			//alert(JSON.stringify(request));
+			
+            $.when(getServiceTemplate(taskParamList)).done(function(data){
+				/*if(data.ERRORCODE == 0) {
+					window.location.href = "/deploy/";
+				} else {
+					addAlert(data.CH + " : " + data.msg);
+				}*/
+                //alert(JSON.stringify(data, null, 4));
+                addAlert(JSON.stringify(data, null, 4));
+                
+                //request['serviceName'] = serviceName;
+                //request['deployName'] = deployName;
+                //request['taskParamList'] = data;
+                
+                //alert(JSON.stringify(request, null, 4));
+                /*$.when(submitDeploy(request)).done(function(data){
+                    if(data.ERRORCODE == 0) {
+                        window.location.href = "/deploy/";
+                    } else {
+                        addAlert(data.CH + " : " + data.msg);
+                    }
+                });*/
+			});
+			return false;
+        }
+        function getServiceTemplate(request) {
+            var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/getServiceTemplate/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: JSON.stringify(request),
+				//async : false,
+				beforeSend:function(XMLHttpRequest){
+				   //document.getElementById('id_loading').style.display = "block";
+				},
+				success: function(data){
+					//document.getElementById('id_loading').style.display = "block";
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+        }
+		function submitDeploy(request) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/deployService/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: JSON.stringify(request),
+				//async : false,
+				beforeSend:function(XMLHttpRequest){
+				   document.getElementById('id_loading').style.display = "block";
+				},
+				success: function(data){
+					//document.getElementById('id_loading').style.display = "block";
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function queryDeployInfo(deploy_id) {
+			addAlert("Warning: " + "Deploy详情查询暂未实现，请到Job Center查看子任务状态.");
+			
+		}
+        
+        $(document).ready(function() {
+			disGearInfoChart();
+		});
+		function getGearInfo(deploy_id) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "GET",
+				url : '/getGearInfo/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//data: JSON.stringify(request),
+				//async : false,
+				beforeSend:function(XMLHttpRequest){
+				   //document.getElementById('id_loading').style.display = "block";
+				},
+				success: function(data){
+					//document.getElementById('id_loading').style.display = "none";
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+        function disGearInfoChart() {
+			$.when(getGearInfo()).done(function(data){
+                var categories = new Array();
+				var workers = new Array();
+                var running = new Array();
+                var queued  = new Array();
+                $.each(data.msg.status_response,function(n,item) {
+                    if(item.task == "gearwork") {
+                        categories.push("JobWorker");
+                    } else if(item.task == "deploy") {
+                        categories.push("DeployWorker");
+                    }
+                    workers.push(item.workers);
+                    running.push(item.running);
+                    queued.push(item.queued);
+				});
+                initGearInfoChart(categories, workers, running, queued);
+			});
+		}
+		function parseRequestURL(paras) {
+			var url = location.href;
+			var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+			var paraObj = {} 
+			for (i=0; j=paraString[i]; i++){ 
+				paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+			} 
+			var returnValue = paraObj[paras.toLowerCase()]; 
+			if(typeof(returnValue)=="undefined"){ 
+				return ""; 
+			}else{ 
+				return returnValue; 
+			} 
+		}
+        
+        function initGearInfoChart(categories, workers, running, queued) {
+            /**
+             * Gray theme for Highcharts JS
+             * @author Torstein Honsi
+            */
+            Highcharts.theme = {
+                colors: ["#DDDF0D", "#7798BF", "#55BF3B", "#DF5353", "#aaeeee", "#ff0066", "#eeaaee",
+                    "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+                chart: {
+                    backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, 'rgb(96, 96, 96)'],
+                            [1, 'rgb(16, 16, 16)']
+                        ]
+                    },
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    plotBackgroundColor: null,
+                    plotShadow: false,
+                    plotBorderWidth: 0
+                },
+                title: {
+                    style: {
+                        color: '#FFF',
+                        font: '16px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+                    }
+                },
+                subtitle: {
+                    style: {
+                        color: '#DDD',
+                        font: '12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+                    }
+                },
+                xAxis: {
+                    gridLineWidth: 0,
+                    lineColor: '#999',
+                    tickColor: '#999',
+                    labels: {
+                        style: {
+                            color: '#999',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    title: {
+                        style: {
+                            color: '#AAA',
+                            font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    alternateGridColor: null,
+                    minorTickInterval: null,
+                    gridLineColor: 'rgba(255, 255, 255, .1)',
+                    minorGridLineColor: 'rgba(255,255,255,0.07)',
+                    lineWidth: 0,
+                    tickWidth: 0,
+                    labels: {
+                        style: {
+                            color: '#999',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    title: {
+                        style: {
+                            color: '#AAA',
+                            font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
+                        }
+                    }
+                },
+                legend: {
+                    itemStyle: {
+                        color: '#CCC'
+                    },
+                    itemHoverStyle: {
+                        color: '#FFF'
+                    },
+                    itemHiddenStyle: {
+                        color: '#333'
+                    }
+                },
+                labels: {
+                    style: {
+                        color: '#CCC'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, 'rgba(96, 96, 96, .8)'],
+                            [1, 'rgba(16, 16, 16, .8)']
+                        ]
+                    },
+                    borderWidth: 0,
+                    style: {
+                        color: '#FFF'
+                    }
+                },
+
+
+                plotOptions: {
+                    series: {
+                        nullColor: '#444444'
+                    },
+                    line: {
+                        dataLabels: {
+                            color: '#CCC'
+                        },
+                        marker: {
+                            lineColor: '#333'
+                        }
+                    },
+                    spline: {
+                        marker: {
+                            lineColor: '#333'
+                        }
+                    },
+                    scatter: {
+                        marker: {
+                            lineColor: '#333'
+                        }
+                    },
+                    candlestick: {
+                        lineColor: 'white'
+                    }
+                },
+
+                toolbar: {
+                    itemStyle: {
+                        color: '#CCC'
+                    }
+                },
+
+                navigation: {
+                    buttonOptions: {
+                        symbolStroke: '#DDDDDD',
+                        hoverSymbolStroke: '#FFFFFF',
+                        theme: {
+                            fill: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0.4, '#606060'],
+                                    [0.6, '#333333']
+                                ]
+                            },
+                            stroke: '#000000'
+                        }
+                    }
+                },
+
+                // scroll charts
+                rangeSelector: {
+                    buttonTheme: {
+                        fill: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#888'],
+                                [0.6, '#555']
+                            ]
+                        },
+                        stroke: '#000000',
+                        style: {
+                            color: '#CCC',
+                            fontWeight: 'bold'
+                        },
+                        states: {
+                            hover: {
+                                fill: {
+                                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                    stops: [
+                                        [0.4, '#BBB'],
+                                        [0.6, '#888']
+                                    ]
+                                },
+                                stroke: '#000000',
+                                style: {
+                                    color: 'white'
+                                }
+                            },
+                            select: {
+                                fill: {
+                                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                    stops: [
+                                        [0.1, '#000'],
+                                        [0.3, '#333']
+                                    ]
+                                },
+                                stroke: '#000000',
+                                style: {
+                                    color: 'yellow'
+                                }
+                            }
+                        }
+                    },
+                    inputStyle: {
+                        backgroundColor: '#333',
+                        color: 'silver'
+                    },
+                    labelStyle: {
+                        color: 'silver'
+                    }
+                },
+
+                navigator: {
+                    handles: {
+                        backgroundColor: '#666',
+                        borderColor: '#AAA'
+                    },
+                    outlineColor: '#CCC',
+                    maskFill: 'rgba(16, 16, 16, 0.5)',
+                    series: {
+                        color: '#7798BF',
+                        lineColor: '#A6C7ED'
+                    }
+                },
+
+                scrollbar: {
+                    barBackgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#888'],
+                                [0.6, '#555']
+                            ]
+                        },
+                    barBorderColor: '#CCC',
+                    buttonArrowColor: '#CCC',
+                    buttonBackgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#888'],
+                                [0.6, '#555']
+                            ]
+                        },
+                    buttonBorderColor: '#CCC',
+                    rifleColor: '#FFF',
+                    trackBackgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, '#000'],
+                            [1, '#333']
+                        ]
+                    },
+                    trackBorderColor: '#666'
+                },
+
+                // special colors for some of the demo examples
+                legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
+                background2: 'rgb(70, 70, 70)',
+                dataLabelsColor: '#444',
+                textColor: '#E0E0E0',
+                maskColor: 'rgba(255,255,255,0.3)'
+            };
+
+            // Apply the theme
+            var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+
+
+            $('#container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Monitor for Backend Task Dispatch'
+                },
+                subtitle: {
+                    text: 'Source: Malakas'
+                },
+                credits: { 
+                    enabled: false   //右下角不显示LOGO 
+                }, 
+                xAxis: {
+                    categories: categories
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Worker Num'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                exporting: {
+                    enabled: true  //设置导出按钮不可用
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                {
+                    name: 'workers',
+                    data: workers,
+                    dataLabels: {
+                        enabled: true,
+                        //rotation: 0,
+                        color: '#FFFFFF',
+                        align: 'center',
+                        x: 4,
+                        y: 10,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif',
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                }, {
+                    name: 'running',
+                    data: running,
+                    dataLabels: {
+                        enabled: true,
+                        //rotation: 0,
+                        color: '#FFFFFF',
+                        align: 'center',
+                        x: 4,
+                        y: 10,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif',
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+
+                }, {
+                    name: 'queued',
+                    data: queued,
+                    dataLabels: {
+                        enabled: true,
+                        //rotation: 0,
+                        color: '#FFFFFF',
+                        align: 'center',
+                        x: 4,
+                        y: 10,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif',
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+
+                }]
+            });
+        }	
+	</script>
+</body>
+</html>

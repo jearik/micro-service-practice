@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# -----------------------------------------------------
+#  FileName    :    urlprefix.py
+#  Author      :    yangjun@
+#  Project     :    hato/utils
+#  Date        :    2015-06-11
+#  Description :    
+# -----------------------------------------------------
+
+URL_PREFIX="${3A_MODULE_NAME}"
+URL_PREFIX_1_0="${3A_MODULE_NAME}/1.0"
+URL_PREFIX_2_0="${3A_MODULE_NAME}/2.0"

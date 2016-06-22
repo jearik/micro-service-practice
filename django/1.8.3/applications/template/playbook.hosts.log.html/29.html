@@ -1,0 +1,45 @@
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script><br/>
+****************************************************************************************************<br/>
+job_id : 29<br/>
+PLAY [Hello World]<br/>
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.89 GATHERING FACTS<br/>
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.88 GATHERING FACTS<br/>
+TASK [Print datetime now]<br/>
+<div style="background-color:green;" class="toggle" id="f2a56457-7e82-4750-b919-1e51f1c4d547">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_f2a56457-7e82-4750-b919-1e51f1c4d547">{<br/>    "cmd": "date && echo && sleep 10", <br/>    "end": "2015-06-27 22:57:51.886246", <br/>    "stdout": "Sat Jun 27 22:57:41 CST 2015", <br/>    "changed": true, <br/>    "start": "2015-06-27 22:57:41.881667", <br/>    "delta": "0:00:10.004579", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="369d5de0-2df0-4a95-9dfd-e9a60bf1b113">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_369d5de0-2df0-4a95-9dfd-e9a60bf1b113">{<br/>    "cmd": "date && echo && sleep 10", <br/>    "end": "2015-06-28 22:56:52.708961", <br/>    "stdout": "Sun Jun 28 22:56:42 CST 2015", <br/>    "changed": true, <br/>    "start": "2015-06-28 22:56:42.704037", <br/>    "delta": "0:00:10.004924", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+TASK [debug msg=""]<br/>
+<div style="background-color:green;" class="toggle" id="63c6c9a4-fb67-4a09-a20d-12e055bf9935">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_63c6c9a4-fb67-4a09-a20d-12e055bf9935">{<br/>    "msg": "", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"\""<br/>    }<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="1b171b86-a5a4-4e66-beec-665518206600">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_1b171b86-a5a4-4e66-beec-665518206600">{<br/>    "msg": "", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"\""<br/>    }<br/>}</div><br/>
+TASK [myhandler]<br/>
+<div style="background-color:red;" class="toggle" id="e034f5a1-7292-4194-bf29-6af2469196b3">RUNNER_ON_FAILED 10.20.0.89</div><div style="display:none;" id="pad_e034f5a1-7292-4194-bf29-6af2469196b3">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-27 22:57:52.227304", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-27 22:57:52.224536", <br/>    "delta": "0:00:00.002768", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:red;" class="toggle" id="71ea3fc8-c266-4931-bd5a-d12ebc39444f">RUNNER_ON_FAILED 10.20.0.88</div><div style="display:none;" id="pad_71ea3fc8-c266-4931-bd5a-d12ebc39444f">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-28 22:56:53.044777", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-28 22:56:53.042312", <br/>    "delta": "0:00:00.002465", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<a href='/getPlaybookJobLogByHost/?job_id=29&host=10.20.0.89'>Host: 10.20.0.89</a>, ok: 3, failures: 1, unreachable: 0, changed: 1, skipped: 0<br/><a href='/getPlaybookJobLogByHost/?job_id=29&host=10.20.0.88'>Host: 10.20.0.88</a>, ok: 3, failures: 1, unreachable: 0, changed: 1, skipped: 0<br/><br/>

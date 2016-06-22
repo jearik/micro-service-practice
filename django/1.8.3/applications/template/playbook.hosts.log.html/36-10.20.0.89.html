@@ -1,0 +1,16 @@
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.89 GATHERING FACTS<br/>
+<div style="background-color:green;" class="toggle" id="1c2a3dcd-53a3-4462-b9cc-46469bd441cf">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_1c2a3dcd-53a3-4462-b9cc-46469bd441cf">{<br/>    "cmd": "echo \"Hi! Tower is working\" && sleep 10", <br/>    "end": "2015-07-01 16:36:04.803860", <br/>    "stdout": "Hi! Tower is working", <br/>    "changed": true, <br/>    "start": "2015-07-01 16:35:54.799633", <br/>    "delta": "0:00:10.004227", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echo \"Hi! Tower is working\" && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="c33c2891-6bb5-41e3-8ed9-0db15386293d">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_c33c2891-6bb5-41e3-8ed9-0db15386293d">{<br/>    "msg": "", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"\""<br/>    }<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="b838a193-e9b8-445f-8b2c-7836ebd2b516">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_b838a193-e9b8-445f-8b2c-7836ebd2b516">{<br/>    "cmd": "date && echo && sleep 10", <br/>    "end": "2015-07-01 16:36:15.108476", <br/>    "stdout": "Wed Jul  1 16:36:05 CST 2015", <br/>    "changed": true, <br/>    "start": "2015-07-01 16:36:05.104608", <br/>    "delta": "0:00:10.003868", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="00e9206e-c420-411b-b3d6-b1959d3fc4c5">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_00e9206e-c420-411b-b3d6-b1959d3fc4c5">{<br/>    "msg": "", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"\""<br/>    }<br/>}</div><br/>
+<div style="background-color:red;" class="toggle" id="d6c5f32f-9336-443e-93ca-d1907e44401c">RUNNER_ON_FAILED 10.20.0.89</div><div style="display:none;" id="pad_d6c5f32f-9336-443e-93ca-d1907e44401c">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-07-01 16:36:15.395001", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-07-01 16:36:15.393425", <br/>    "delta": "0:00:00.001576", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>

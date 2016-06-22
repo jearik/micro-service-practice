@@ -4,7 +4,7 @@
 # MAINTAINER yangjun <597092663@qq.com>
 
 # 1. 基础镜像.
-FROM 10.5.24.46:80/nscloud/ubuntu:2.0
+FROM 10.5.24.46:80/nscloud/ubuntu:14.04
 
 # 2. 镜像BUILD默认参数 & RUN环境变量.
 # ARG APP_PATH="/opt/applications"    # !!!No Modification, Must Be Same As Base Image.
