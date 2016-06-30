@@ -29,8 +29,8 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Authentication definition
-LOGIN_URL="/${3A_MODULE_NAME}/login/"
-LOGIN_REDIRECT_URL="/${3A_MODULE_NAME}/"
+LOGIN_URL="/${MODULE_NAME}/login/"
+LOGIN_REDIRECT_URL="/${MODULE_NAME}/"
 SESSION_SAVE_EVERY_REQUEST=True
 SESSION_EXPIRE_AT_BROWSER_CLOSE=False
 SESSION_COOKIE_AGE=60*15    # session expires 15 min
@@ -47,13 +47,9 @@ INSTALLED_APPS = (
     #'rest_framework.authtoken',
     'oauth2_provider',
     
-    'app',
+    'app.index',
+    'app.com',
 )
-
-'''OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
-}'''
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -68,15 +64,19 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.AllowAny',
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'EXCEPTION_HANDLER': 'app.com.exception_handler.common_exception_handler',
 }
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
-    'DEFAULT_SCOPES': ['read', 'write', 'groups'],
-    #'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+    'SCOPES': {
+        'get_user_basic_info': 'Get User Basic Info', 
+        'get_user_group_info': 'Get User Group Info', 
+        'get_user_permission_info': 'Get User Permission Info'
+    },
+    'DEFAULT_SCOPES': ['get_user_basic_info', 'get_user_group_info', 'get_user_permission_info'],
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
 }
-
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,11 +123,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE":   "django.db.backends.mysql",
-        "NAME":     "${3A_MYSQL_DATABASE}",
-        "USER":     "${3A_MYSQL_USER}",
-        "PASSWORD": "${3A_MYSQL_PASSWORD}",
-        "HOST":     "${3A_MYSQL_HOST}",
-        "PORT":     ${3A_MYSQL_PORT},
+        "NAME":     "${MYSQL_DATABASE}",
+        "USER":     "${MYSQL_USER}",
+        "PASSWORD": "${MYSQL_PASSWORD}",
+        "HOST":     "${MYSQL_HOST}",
+        "PORT":     ${MYSQL_PORT},
     }
 }
 
@@ -149,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 STATIC_ROOT = '${APP_PATH}/static/'
-STATIC_URL = '/${3A_MODULE_NAME}/static/'
+STATIC_URL = '/${MODULE_NAME}/static/'
 
 # added by webapp
 STATICFILES_DIRS = (

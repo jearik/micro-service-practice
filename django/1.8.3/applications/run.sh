@@ -3,10 +3,11 @@ set -eux
 env
 
 # runtime configuration
-python ${APP_PATH}/build-utils/configueUpdate/templateInvoke.py ${APP_PATH}/com/urlprefix.py.template ${APP_PATH}/com/urlprefix.py
+python ${APP_PATH}/build-utils/configueUpdate/templateInvoke.py ${APP_PATH}/app/com/urlprefix.py.template ${APP_PATH}/app/com/urlprefix.py
+python ${APP_PATH}/build-utils/configueUpdate/templateInvoke.py ${APP_PATH}/app/index/views.py
 python ${APP_PATH}/build-utils/configueUpdate/templateInvoke.py ${APP_PATH}/mysite/settings.py ${APP_PATH}/mysite/settings.py
 pushd ${APP_PATH} && python manage.py migrate auth --noinput >> /dev/null \
-    && echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', '', '${3A_ADMIN_PASSWORD}')" | python manage.py shell | echo "add admin" \
+    && echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', '', '${ADMIN_PASSWORD}')" | python manage.py shell | echo "add admin" \
     && python manage.py collectstatic --noinput >> /dev/null \
     && python manage.py migrate --noinput >> /dev/null && popd
 

@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from rest_framework.authtoken import views as authtoken_views
-from app import views as app_views
+from app.index import views as app_views
 
 from django.contrib.auth.views import login
 from django.views.decorators.csrf import csrf_protect,csrf_exempt
@@ -21,7 +21,7 @@ from rest_framework import permissions, routers, serializers, viewsets
 
 from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
 
-from com.urlprefix import *
+from app.com.urlprefix import *
 
 # first we define the serializers
 class UserSerializer(serializers.ModelSerializer):
@@ -70,13 +70,13 @@ urlpatterns = patterns('',
 
     ('^'+URL_PREFIX+'/header/$', app_views.header),
     ('^'+URL_PREFIX+'/footer/$', app_views.footer),
-    ('^'+URL_PREFIX+'$', app_views.index),
+    ('^'+URL_PREFIX+'/$', app_views.index),
     
     ('^'+URL_PREFIX+'/jobcenter/$', app_views.jobcenter),
     ('^'+URL_PREFIX+'/cloudhost/$', app_views.cloudhost),    
     ('^'+URL_PREFIX+'/help/$', app_views.help),
     ('^'+URL_PREFIX+'/otest/$', app_views.otest),
-    ('^'+URL_PREFIX+'/GalaxyManagerLogIn/$', app_views.GalaxyManager_LogIn),
+    ('^'+URL_PREFIX+'/auth_demo/$', app_views.auth_demo),
     
     (r'^'+URL_PREFIX+'/login/$', csrf_exempt(login), {"template_name": "registration/login.html"}, 'login'),
     ('^'+URL_PREFIX+'/logout/$', app_views.logout_view),
@@ -89,9 +89,9 @@ urlpatterns = patterns('',
     # url(r'^oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     
     #added by app
-    #('^'+URL_PREFIX_1_0+'/app/', include('app.urls')),
+    ('^'+URL_PREFIX_1_0+'/app/', include('app.index.urls')),
     
-    #url(r'^'+URL_PREFIX+'/', include(router.urls)),
+    url(r'^'+URL_PREFIX+'/', include(router.urls)),
     url(r'^'+URL_PREFIX+'/oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 )
 
