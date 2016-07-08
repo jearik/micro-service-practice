@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/demoApp/phone-list/phone-list.animations.css" />
+<link rel="stylesheet" href="/demoApp/phone-list/phone-list.css" />
+<p>Search: <input ng-model="$ctrl.query" /> Uppercased: {{$ctrl.query | uppercase}}</p>
+<p>Sort by:
+    <select ng-model="$ctrl.orderProp">
+        <option value="name">AlphabetAsc</option>
+        <option value="-name">AlphabetDsc</option>
+        <option value="age">Newest</option>
+        <option value="-age">Oldest</option>
+    </select>
+</p>
+<ul class="phones">
+    <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
+        <!-- <span>{{phone.name}}</span> -->
+        <a href="#!/demoApp/phone-list/{{phone.id}}" class="thumb">
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+        </a>
+        <a href="#!/demoApp/phone-list/{{phone.id}}">{{phone.name}}</a>
+        <p>{{phone.snippet}}</p>
+    </li>
+</ul>
+<p>Total number of phones: {{$ctrl.phones.length}}</p>
+<pre>{{$ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp | json}}</pre>
+
+<div>
+    <p>{{'lower cap string' | uppercase}}</p>
+    <pre>{{{foo: 'bar', baz: 42} | json}}</pre>
+    <p>{{1459461289000 | date}}</p>
+    <p>{{1459461289000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+</div>

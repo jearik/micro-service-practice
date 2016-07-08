@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;" ng-app="indexApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+    <meta content="首页" name="keywords" />
+    <meta content="首页" name="description" />
+    <meta name="generator" content="首页"/>
+    <title>indexApp</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.1-dist/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="indexApp.css" />
+    <link rel="stylesheet" href="indexApp.animations.css" />
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <!-- <div ng-controller="PhoneListController">
+        <p>Your name: <input type="text" ng-model="hello" placeholder="World">Hello {{hello || 'World'}}!</p><br/>
+        
+        <ul>
+          <li ng-repeat="phone in phones">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+        <p>Total number of phones: {{phones.length}}</p><br/>
+    </div> -->
+    
+    <!-- Use a custom component to render a list of phones -->
+    <!-- <div>
+        <h4>common</h4>
+        <common-list></common-list><hr/>
+        <h4>demoApp</h4>
+        <phone-list></phone-list>
+    </div> -->
+    <div class="view-container">
+        <div ng-view class="view-frame">
+        </div>
+    </div>
+    <script src="/static/js/lib/jquery-2.2.4/dist/jquery.min.js"></script>
+    <script src="/static/js/lib/angular-1.5.7/angular.min.js"></script>
+    <script src="/static/js/lib/angular-1.5.7/angular-route.js"></script>
+    <script src="/static/js/lib/angular-1.5.7/angular-resource.js"></script>
+    <script src="/static/js/lib/angular-1.5.7/angular-animate.js"></script>
+    <!-- <script src="hello.js"></script> -->
+    <script src="indexApp.module.js"></script>
+    <script src="indexApp.config.js"></script>
+    <script src="/index/auth-test/auth-test.module.js"></script>
+    <script src="/index/auth-test/auth-test.component.js"></script>
+    <!-- <script src="/common/common-list/common-list.module.js"></script>
+    <script src="/common/common-list/common-list.component.js"></script>
+    <script src="/demoApp/phone-list/phone-list.module.js"></script>
+    <script src="/demoApp/phone-list/phone-list.component.js"></script>
+    <script src="/demoApp/phone-detail/phone-detail.module.js"></script>
+    <script src="/demoApp/phone-detail/phone-detail.component.js"></script>
+    <script src="/demoApp/phone-detail/phone-detail.animations.js"></script>
+    <script src="/demoApp/phone-service/phone-service.module.js"></script>
+    <script src="/demoApp/phone-service/phone-service.service.js"></script>
+    <script src="/core/core.module.js"></script>
+    <script src="/core/checkmark/checkmark.filter.js"></script> -->
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

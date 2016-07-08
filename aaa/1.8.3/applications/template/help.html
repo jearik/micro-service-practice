@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="Help" name="keywords" />
+	<meta content="Help" name="description" />
+	<meta name="generator" content="Help"/>
+	<title>Help-Malakas</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/demo/nav/docs.min.css" type="text/css"/>-->
+	<link rel="stylesheet" href="/static/js/model/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/patch.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/docs.min.css" type="text/css"/>
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		/* footer css #f8f8f8; */
+		.pb-page-footer{
+			width: 100%;
+			color: gray;
+			background-color: #3C3C3C;
+			#border-top: 1px solid #e7e7e7;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.pb-page-footer a, .pb-page-footer a:visited {
+			color: #777;
+			text-decoration: none;
+		}
+		.pb-page-footer a:active, .pb-page-footer a:hover, .pb-page-footer a:focus{
+			color: white;
+			text-decoration: none;
+		}
+		body {
+			padding-bottom:0px;
+		}
+		.pb-page-footer h4 {
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<div id="id_header" style="width:100%;"></div>
+	
+	<!-- Docs page layout -->
+	<div class="bs-docs-header" id="content">
+		<div class="container">
+			<h1>Malakas</h1>
+			<p>Malakas is a simple, Agile, but Powerful automation tool that you can learn quickly. </p>
+			<p>With the restful API and splendid web UI, Malakas is the best way to run Ansible in your company. Just enjoy it right now!</p>
+			<div id="carbonads-container">
+				<div class="carbonad">
+					<div id="azcarbon">
+						<img style="display:inline;" src="/static/images/share/ANSI_logotype_web_white.png"></img><br/><br/>
+						<span style="font-size:16px;">DevOps made simple.</span>
+					</div>
+					<!--<script>var z = document.createElement("script"); z.async = true; z.src = "http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container bs-docs-container">
+		<div class="row">
+			<div class="col-md-9" role="main">
+				<div class="bs-docs-section">
+					<h1 id="id_overview" class="page-header">一、概览</h1>
+					<h3 id="id_overview_goal">1.1、Malakas定位</h3>
+					<p>Malakas为云环境下较大规模场景的业务自动化部署提供通用解决方案，并内置绿盟云自动化部署、更新、自验证等服务，助力<b>敏捷开发、敏捷测试、敏捷运维</b>！</p>
+					
+					<h3 id="id_overview_feature">1.2、Malakas特性</h3>
+					<p>Malakas妥善考虑基础能力完备、调度横向扩展、Restful API调用、自动部署服务化等因素。其特性如下：</p>
+					<ul>
+						<li>支持简单命令、Script脚本、基于Playbook复杂任务编排等各类简单自动化部署任务。</li>
+                        <li>支持基于自定义工作流的复杂任务调度，满足具有复杂拓扑依赖关系业务的自动化部署。</li>
+						<li>支持自动部署服务化。</li>
+						<li>支持Restful API调用。</li>
+						<li>支持友好界面操作。</li>
+						<li>支持大规模场景，架构可横向扩展。</li>
+						<li>支持生产环境可靠性需求，内置失败自动重试机制。</li>
+						<li>基于OpenSSH加密协议通信，满足生产环境安全需求。</li>
+					</ul>
+				</div>
+                <div class="bs-docs-section">
+					<h1 id="id_deploy" class="page-header">二、绿盟云自助部署/更新升级</h1>
+					<h3 id="id_deploy_vm">2.1、申请虚拟机</h3>
+                    <p>按照最小部署需求申请虚拟机。</p>
+					<ul>
+						<li>2.1.1、生产环境虚拟机需求：</li>
+                        <p><img src="/static/images/resources/product.png" width="100%"></img></p>
+                        <li>2.1.2、生产环境部署拓扑图(模板)：</li>
+                        <p><img src="/static/images/resources/生产环境拓扑模板.png" width="100%"></img></p>
+                        <li>2.1.3、测试环境虚拟机需求：</li>
+                        <p><img src="/static/images/resources/develop.png" width="100%"></img></p>
+                        <li>2.1.4、测试环境部署拓扑图(模板)：</li>
+                        <p><img src="/static/images/resources/测试环境拓扑模板.png" width="100%"></img></p>
+					</ul>
+                    
+					<h3 id="id_deploy_mysql">2.2、申请MySQL服务</h3>
+					<p>申请各个模块需要的MySQL服务。</p>
+					<ul>
+						<li>2.2.1、MySQL初始化</li>
+                        <p><a href="/deployNext/?service=service_Goni_MYSQL初始化">Deploy -> New Deploy -> service_Goni_MYSQL初始化</a>，提交任务。</p>
+                        <li>2.2.2、一键申请MySQL服务</li>
+                        <p><a href="/deployNext/?service=service_Goni_一键申请RDB服务">Deploy -> New Deploy -> service_Goni_一键申请RDB服务</a>，输入MySQL虚拟机地址，申请MySQL服务的用户名、密码。提交任务，并在【task_rds_create】任务日志中查看记录申请的MySQL端口号。需要申请MYSQL的模块见上面的拓扑图，MYSQL密码不要使用&、#、！等shell中需要转义的字符，建议使用大小写字母、数字、下划线、@等符号作为数据库密码。</p>
+					</ul>
+                    
+                    <h3 id="id_deploy_onclick">2.3、一键部署绿盟云</h3>
+					<p>根据拓扑模板规划申请的虚拟机，准备域名，获取分布式集群、NFS等公共信息等。然后启动一键部署。</p>
+					<ul>
+						<li>2.3.1、生产环境</li>
+                        <p><a href="/deployNext/?service=service_paas_生产环境一键部署">Deploy -> New Deploy -> service_paas_生产环境一键部署</a>，提交任务。</p>
+                        <li>2.3.2、测试环境</li>
+                        <p><a href="/deployNext/?service=service_paas_开发环境一键部署">Deploy -> New Deploy -> service_paas_开发环境一键部署</a>，输入MySQL虚拟机地址，申请MySQL服务的用户名、密码。提交任务，并在【task_rds_create】任务日志中查看记录申请的MySQL端口号。</p>
+                        <li>2.3.3、友情提示</li>
+                        <p>Malakas针对绿盟云提供了各个层次的部署、更新服务。既可以选择一键部署/更新、也可以针对具体的模块分别部署/更新。希望平台提供的各式各样的服务，总有一款满足您！</p>
+                    </ul>
+				</div>
+                <div class="bs-docs-section">
+					<h1 id="id_api" class="page-header">三、开放API</h1>
+					<h3 id="id_api_overview">3.1、概述</h3>
+					<p>Malakas追求简单即美的设计理念，只需要两个开放接口即可享受所有Malskas特性。其他如任务脚本开发、自定义工作流等支撑工作可咨询Malakas维护人。</p>
+                    
+					<h3 id="id_api_intf">3.2、API接口</h3>
+					<ul>
+						<li>3.2.1、提交部署任务：</li>
+                        <p>URL: /deployService/</p>
+                        <p>Method: POST</p>
+                        <p>Parameters: <pre>deployName: 部署任务名，随意填写。
+serviceName: 服务名。
+taskParamList: 各个子任务参数。</pre></p>
+                        <p>接口调用示例：<pre>#!/usr/bin/python
+# -*- coding: utf-8 -*-
+'''
+Created on 2015/09/17
+
+@author: yangjun
+'''
+import sys
+import json
+import traceback
+import time
+import httplib
+import json
+import logging
+
+if __name__ == '__main__':
+    try:
+        conn = httplib.HTTPConnection("10.5.24.17:80")
+        headers = {"Content-type":"application/json"}
+        params = ({
+            "serviceName":"service_Goni_rds_create_dbuser",
+            "deployName":"deploy_name_test",
+            "taskParamList":{
+                "task_rds_create_dbuser": {
+                    "host_list": "10.5.24.102;10.5.24.123",
+                    "task_args": "choi_wan Choi_wan@123"
+                }
+            }
+        })
+        #print json.dumps(params)
+        conn.request("POST", "/deployService/", json.JSONEncoder().encode(params), headers)
+        response = conn.getresponse()
+        data = response.read()
+        data = json.loads(data,encoding='UTF-8')
+        print data
+    except Exception as e:
+        logging.error(e, exc_info=1)
+    finally:
+        conn.close()
+</pre></p>
+                        <p>接口返回: <pre>{"ERRORCODE": 0, "msg": {"deploy_id": 14}, "CH": "操作成功", "EH": "operation success"}</pre></p>
+                        
+                        <li>3.2.2、查询部署状态：</li>
+                        <p><pre>后续可调用/getDeployByID/?deploy_id=34跟踪此任务的状态。</pre></p>
+                        
+					</ul>
+				</div>
+                <div class="bs-docs-section">
+					<h1 id="id_help" class="page-header">四、友情提醒</h1>
+					<h3 id="id_help_info">4.1、各组件接口人列表</h3>
+                    <p><img src="/static/images/resources/help.png" width="545px" height="293px"></img></p>
+                    
+                    <h3 id="id_help_warning">4.2、Kindly Remind</h3>
+                    <p style="background-color:yellow;font-weight:bold;">我们希望您不要因为部署失败对自己产生怀疑并丧失信心，网络不稳定之类的问题总会遇到的。部署失败，保持淡定，不要惊慌，点击重新发射按钮<img src="/static/images/resources/relaunch.png" width="102px" height="28px"></img>，重新部署即可（删除已有数据库、等待此Deploy正在运行Job完成），或者直接咨询各模块接口人。Just start to enjoy it ！</p>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+					<ul class="nav bs-docs-sidenav">
+						<li>
+							<a href="#id_overview">一、概览</a>
+							<ul class="nav">
+								<li><a href="#id_overview_goal">1.1、Malakas定位</a></li>
+								<li><a href="#id_overview_feature">1.2、Malakas特性</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#id_deploy">二、绿盟云自助部署/更新升级</a>
+							<ul class="nav">
+								<li><a href="#id_deploy_vm">2.1、申请虚拟机</a></li>
+								<li><a href="#id_deploy_mysql">2.2、申请MySQL服务</a></li>
+                                <li><a href="#id_deploy_onclick">2.3、PAAS一键部署</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#id_deploy">三、开放API</a>
+							<ul class="nav">
+								<li><a href="#id_api_overview">3.1、概述</a></li>
+								<li><a href="#id_api_intf">3.2、API接口</a></li>
+							</ul>
+						</li>
+                        <li>
+							<a href="#id_help">四、友情提醒</a>
+							<ul class="nav">
+								<li><a href="#id_help_info">4.1、各组件接口人列表</a></li>
+                                <li><a href="#id_help_warning">4.2、Kindly Remind</a></li>
+							</ul>
+						</li>
+					</ul>
+					<a class="back-to-top" href="#top">返回顶部</a>
+				</div>
+			</div>
+		</div>
+        <br/><br/><br/><br/><br/><br/>
+	</div>
+	<div id="id_footer" style="width:100%;"></div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+					<h4 class="modal-title" id="myModalLabel">Info</h4>
+				</div>
+				<div class="modal-body text-center">
+					Operation Success
+				</div>
+				<!--<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(e) {
+            var header_url = "/header/";
+            var footer_url = "/footer/";
+            $('#id_header').load(header_url, function(){
+                    $("#id_menu_help").addClass("active");
+                }
+            );
+            $('#id_footer').load(footer_url);
+		});
+	</script>
+</body>
+</html>

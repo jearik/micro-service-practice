@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="/common/common-list/common-list.css" />
+<ul>
+    <li ng-repeat="common in $ctrl.commons">
+        <span>{{common.name}}</span>
+        <p>{{common.snippet}}</p>
+    </li>
+</ul>
+<p>Total number of commons: {{$ctrl.commons.length}}</p>

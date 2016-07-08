@@ -1,0 +1,55 @@
+upstream uwsgi_host {
+    server 127.0.0.1:9090;
+}
+server {
+    listen                  443;
+    charset                 utf-8;
+    ssl                     on;
+    ssl_certificate         ${APP_PATH}/nginx-conf.d/cert/3927.crt;
+    ssl_certificate_key     ${APP_PATH}/nginx-conf.d/cert/3927_nopass.key;
+    
+    access_log ${APP_PATH}/logs/access.log;
+    error_log ${APP_PATH}/logs/error.log;
+    
+    location ^~ /static/ {
+        expires off;
+        alias ${APP_PATH}/static/;
+    }
+    location ^~ /${MODULE_NAME}/static/ {
+        expires off;
+        alias ${APP_PATH}/static/;
+    }
+    location ^~ / {
+        expires off;
+        root ${APP_PATH}/template;
+        
+        uwsgi_pass uwsgi_host;
+        include    uwsgi_params;
+    }
+}
+
+server {
+    listen                  80;
+    charset                 utf-8;
+    
+    access_log ${APP_PATH}/logs/access.log;
+    error_log ${APP_PATH}/logs/error.log;
+    
+    location ^~ /static/ {
+        expires off;
+        alias ${APP_PATH}/static/;
+    }
+    location ^~ /${MODULE_NAME}/static/ {
+        expires off;
+        alias ${APP_PATH}/static/;
+    }
+    location ^~ / {
+        expires off;
+        root ${APP_PATH}/template;
+        
+        uwsgi_pass uwsgi_host;
+        include    uwsgi_params;
+    }
+}
+
+

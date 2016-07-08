@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="首页" name="keywords" />
+	<meta content="首页" name="description" />
+	<meta name="generator" content="首页"/>
+	<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+	<title>首页-XXX云平台</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/slider.css" type="text/css"/>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="id_header" style="width:100%;height:40px;"></div>
+	<div class="container" style="min-height:750px;">
+		<p style="font-size:60px;text-align:center;margin-top:300px;">这里是自定义区域</p>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			var header_url = "/header/";
+            var footer_url = "/footer/";
+			$('#id_header').load(header_url);
+            $('#id_footer').load(footer_url);
+		});
+	</script>
+    <div id="id_footer" style="width:100%;height:40px;"></div>
+</body>
+</html>

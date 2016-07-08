@@ -1,0 +1,23 @@
+phone-list {
+    font-size:16px;
+    font-weight:bold;
+}
+
+/* View: Phone list */
+phone-list .phones {
+    list-style: none;
+}
+
+phone-list .phones li {
+    clear: both;
+    height: 115px;
+    padding-top: 15px;
+}
+
+phone-list .thumb {
+    float: left;
+    height: 100px;
+    margin: -0.5em 1em 1.5em 0;
+    padding-bottom: 1em;
+    width: 100px;
+}

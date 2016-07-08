@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="Help" name="keywords" />
+	<meta content="Help" name="description" />
+	<meta name="generator" content="Help"/>
+	<title>Help-Malakas</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/demo/nav/docs.min.css" type="text/css"/>-->
+	<link rel="stylesheet" href="/static/js/model/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/patch.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/docs.min.css" type="text/css"/>
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		/* footer css #f8f8f8; */
+		.pb-page-footer{
+			width: 100%;
+			color: gray;
+			background-color: #3C3C3C;
+			#border-top: 1px solid #e7e7e7;
+			margin-top: 5px;
+			margin-bottom: 0px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.pb-page-footer a, .pb-page-footer a:visited {
+			color: #777;
+			text-decoration: none;
+		}
+		.pb-page-footer a:active, .pb-page-footer a:hover, .pb-page-footer a:focus{
+			color: white;
+			text-decoration: none;
+		}
+		body {
+			padding-bottom:0px;
+		}
+		.pb-page-footer h4 {
+			color:white;
+		}
+		
+		/* job center body */
+		.form-control {
+			height: 28px;
+		}
+		.keep-open {
+			height: 28px;
+		}
+		div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-right.btn-group.pull-right > div > button {
+			height: 28px;
+		}
+		div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list {
+			display: inline-block !important;
+		}
+		div.fixed-table-container > div.fixed-table-pagination > div.pull-right.pagination {
+			display: inline-block !important;
+		}
+		.fixed-table-container {
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="id_header" style="width:100%;"></div>
+	
+	<!-- Docs page layout -->
+	<div class="bs-docs-header" id="content">
+		<div class="container">
+			<h1>Malakas</h1>
+			<p>Malakas is a simple, Agile, but Powerful automation tool that you can learn quickly. </p>
+			<p>With the restful API and splendid web UI, Malakas is the best way to run Ansible in your company. Just enjoy it right now!</p>
+			<div id="carbonads-container">
+				<div class="carbonad">
+					<div id="azcarbon">
+						<img style="display:inline;" src="/static/images/share/ANSI_logotype_web_white.png"></img><br/><br/>
+						<span style="font-size:16px;">DevOps made simple.</span>
+					</div>
+					<!--<script>var z = document.createElement("script"); z.async = true; z.src = "http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" style="margin-top:10px;margin-bottom:20px;min-height:500px;">
+		<!--<iframe id="panorama_view" src="" width="100%" height="500" frameborder="0" style=" ">
+		 </iframe>-->
+		<h4 class="page-header" style="margin-top:5px;">Module List</h4>
+		<table id="url_tbl" data-toggle="table" 
+				data-url="/getModuleDocList/"
+				data-classes="table table-hover table-condensed" 
+				data-striped="true"
+				data-row-style="rowStyle" 
+				data-sort-name="id" 
+				data-sort-order="desc" 
+				data-show-header="true" 
+				data-query-params-type="limit" 
+				data-show-pagination-switch="false" 
+				data-pagination="false" 
+				data-smart-display="true"
+				data-side-pagination="server" 
+				data-page-number="1" 
+				data-page-size="5" 
+				data-page-list="[5, 10, 20, 50, 100]" 
+				data-search="false" 
+				data-show-refresh="true" 
+				data-show-toggle="true" 
+				data-show-columns="true" 
+				data-click-to-select="true" 
+				data-select-item-name="myRadioName" 
+				data-single-select="true" 
+				data-toolbar="#toolbar" >
+				<!--data-height="200"-->
+				<thead>
+					<tr>
+						<th data-field="module" data-sortable="true" data-halign="center" data-align="left" data-formatter="moduleNameFormatter">ModuleName</th>
+						<th data-field="desc" data-sortable="true" data-halign="center" data-align="left">ModuleDescription</th>
+					</tr>
+				</thead>
+		</table>
+	</div>
+	<div id="id_footer" style="width:100%;"></div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+					<h4 class="modal-title" id="myModalLabel">Info</h4>
+				</div>
+				<div class="modal-body text-center">
+					Operation Success
+				</div>
+				<!--<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script src="/static/js/model/moment-develop/min/moment-with-locales.min.js"></script>
+	<script src="/static/js/model/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(e) {
+            var header_url = "/header/";
+            var footer_url = "/footer/";
+            $('#id_header').load(header_url, function(){
+                    $("#id_menu_help").addClass("active");
+                }
+            );
+            $('#id_footer').load(footer_url);
+		});
+        
+		/**********************************************************************************************
+		*****账号下拉列表初始化
+		**********************************************************************************************/
+		//表格行style设置
+		function rowStyle(row, index) {
+			var classes = ['active', 'success', 'info', 'warning', 'danger'];
+			/*if (index % 2 === 0 && index / 2 < classes.length) {
+				return {
+					classes: classes[index / 2]
+				};
+			}*/
+			/*if (row.job_status == 5) {
+				return {
+					classes: 'danger'
+				};
+			}*/
+			return {};
+		}
+		//表格列data设置
+		function moduleNameFormatter(value) {
+			return '<a href="/helpModuleInfo/?module='+value+'"><b>'+value+'</b></a>';
+		}
+		function jobTypeFormatter(value) {
+			if (value == 0) {
+				return "Basic";
+			} else if (value == 1) {
+				return "Script";
+			} else if (value == 2) {
+				return "Playbook";
+			}
+		}
+		function jobStatusFormatter(value) {
+			if (value == 0) {
+				return "<img src='/static/images/r_loading.gif' title='initial'>";
+			} else if (value == 1) {
+				return "<img src='/static/images/r_running.gif' title='submited'>";
+			} else if (value == 2) {
+				return "<img src='/static/images/r_running.gif' title='scrabed'>";
+			} else if (value == 3) {
+				return "<img src='/static/images/r_running.gif' title='polled'>";
+			} else if (value == 4) {
+				return "<img src='/static/images/r_running.gif' title='running'>";
+			} else if (value == 5) {
+				return "<img src='/static/images/r_exception.png' title='exception'>";
+			} else if (value == 6) {
+				return "<img src='/static/images/r_success.png' title='success'>";
+			}
+		}
+		//表格index设置
+		function runningFormatter(value, row, index) {
+			return index;
+		}
+		//表格复选设置
+		function stateFormatter(value, row, index) {
+			if (index === 2) {
+				return {
+					disabled: true
+				};
+			}
+			if (index === 0) {
+				return {
+					disabled: true,
+					checked: true
+				}
+			}
+			return value;
+		}
+		//表格分页查询设置
+		function queryParams() {
+			return {
+				limit: 5,
+				offset: 0,
+				//search: 
+				sort: 'id',
+				order: 'desc'
+			};
+		}
+		/*
+		$(document).ready(function() {
+			$('.page-list').css('display','inline-block'); 
+			$('.pagination').css('display','inline-block'); 
+			$('.page-list').css({visibility,"visible"});
+			$('.pagination').css({visibility,"visible"});
+		});*/
+		/*$(document).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+				format: 'YYYY-MM-DD',
+				useCurrent: true,
+				calendarWeeks: true,
+				showTodayButton: true,
+				showClear: true
+			});
+		});
+		$(document).ready(function() {
+			initAccountList();
+		});*/
+		function initAccountList() {
+			$.when(queryAccounts()).done(function(data){
+				$.each(data,function(n,value) {  
+					$("#id_account_select").append('<option value="' + value + '">' + value + '</option>');
+				});
+			});
+		}
+		function queryAccounts() {
+			var metricsID = parseRequestURL("metricsID");
+			//alert(metricsID);
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAccounts/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: {metricsID:metricsID},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		/**********************************************************************************************
+		*****账户点击率监控曲线
+		**********************************************************************************************/
+		function queryAccountInfoChart() {
+			var date = $("#datetimepicker1 input").val();
+			alert(date);
+			var account = $("#id_account_select option:selected").val();
+			if(account == "NULL") {
+				alert("请选择查询账号");
+				return;
+			}
+			var categories = new Array();
+			var data = new Array();
+			data[0] = new Array();
+			data[1] = new Array();
+			data[2] = new Array();
+			data[3] = new Array();
+			$.each(accountInfo,function(i,item) {
+				$.each(item,function(j,itemitem) {  
+					if(itemitem.accountName == account) {
+						categories.push(itemitem.datetime);
+						data[0].push(Number(itemitem.clickrate[0]));
+						data[1].push(Number(itemitem.clickrate[1]));
+						data[2].push(Number(itemitem.clickrate[2]));
+						data[3].push(Number(itemitem.clickrate[3]));
+					}
+				});
+			});
+			/*alert(data[0]);
+			alert(data[1]);
+			alert(data[2]);
+			alert(data[3]);*/
+			disStatChart(categories, data);
+		}
+		/*$(document).ready(function() {
+			initAlarmTrendChart();
+		});
+		function initAlarmTrendChart(){
+			$('#alarmTrendLoading').show();
+			$.when(queryAlarmTrendData()).done(function(data){
+				$('#alarmTrendLoading').hide();
+				disAlarmTrendChart(data.date, data.data);
+			});
+		}
+		function queryAlarmTrendData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAlarmDayperiod/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}*/
+		function disStatChart(categories, data) {
+			$('#container_account_clickrate').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '账户点击率监控曲线'
+				},
+				subtitle: {
+					text: '今天-前一周-前两周-前三周'
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: '次数/次'
+					}
+				},
+				tooltip: {
+					pointFormat: '<b>{series.name} : {point.y}</b>次 ',
+					shared: true,
+					useHTML: true
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: '今天',
+					data: data[0]
+
+				}, {
+					name: '前一周',
+					data: data[1]
+
+				}, {
+					name: '前两周',
+					data: data[2]
+
+				}, {
+					name: '前三周',
+					data: data[3]
+
+				}]
+			});
+		}
+		function parseRequestURL(paras) {
+			var url = location.href;
+			var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+			var paraObj = {} 
+			for (i=0; j=paraString[i]; i++){ 
+				paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+			} 
+			var returnValue = paraObj[paras.toLowerCase()]; 
+			if(typeof(returnValue)=="undefined"){ 
+				return ""; 
+			}else{ 
+				return returnValue; 
+			} 
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<!-- <meta content="首页" name="keywords" />
+	<meta content="首页" name="description" />
+	<meta name="generator" content="首页"/>
+	<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+	<title>首页-XXX云平台</title> -->
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<!-- <link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/> -->
+	<!-- <link rel="stylesheet" href="/static/css/slider.css" type="text/css"/> -->
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 250px;
+			padding-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+{% block content %}
+
+{% if form.has_errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<!-- <p>注册功能暂未提供, 请联系管理员 yangjun@intra.nsfocus.com 申请登录账号.</p>
+<form method="post" action=".">{% csrf_token %}
+<table>
+<tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr>
+<tr><td><label for="id_password">Password:</label></td><td>{{ form.password }}</td></tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form> -->
+
+<div class="container">
+    <div class="row">
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Change your password</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form" method="post" action="/modpwd/">{% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+			    		    <!-- <input class="form-control" placeholder="input your name" name="email" type="text" value=""> -->
+                            <!-- <tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr> -->
+                            <input class="form-control" placeholder="your current password" id="id_current_password" type="password">
+			    		</div>
+			    	  	<div class="form-group">
+			    		    <!-- <input class="form-control" placeholder="input your name" name="email" type="text" value=""> -->
+                            <!-- <tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr> -->
+                            <input class="form-control" placeholder="your new password" id="id_new_password" type="password" minlength="8" required>
+			    		</div>
+			    		<div class="form-group">
+			    			<!-- <input class="form-control" placeholder="input your password" name="password" type="password" value=""> -->
+                            <!-- <tr><td><label for="id_password">Password:</label></td><td>{{ form.password }}</td></tr> -->
+                            <input class="form-control" placeholder="repeate your new password" id="id_repeate_password" type="password" minlength="8" required>
+			    		</div>
+			    		<!-- <div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    	</label>
+			    	    </div> -->
+			    		<input class="btn btn-primary btn-block" type="submit" value="Change" onclick="return changepwd();">
+                        
+                        <div id="id_loading" style="display:none;">
+								<p style="text-align:center;"><img src="/static/images/loading.gif"></img></p>
+								<p style="text-align:center;">Submitting，Please wait a moment...</p>
+							</div>
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+    <!-- <div style="text-align:center;">
+        <p style="font-weight:bold;">温馨提示: </p>
+        <p>为保证系统安全, Malakas不提供注册功能, <br/>请联系管理员 <a href="mailto:yangjun@intra.nsfocus.com">yangjun@intra.nsfocus.com</a> 申请创建登录账号.</p>
+    </div> -->
+    <!-- Alert -->
+	<div id="alerts" style='position:fixed;top:60px;right:20px;'></div>
+    
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function addAlert(message) {
+			$('#alerts').append(
+				'<div class="alert alert-danger alert-dismissible fade in" style="min-width:300px;">' +
+					'<button type="button" class="close" data-dismiss="alert">' +
+					'&times;</button>' + message + '</div>');
+		}
+        
+        function changepwd() {
+			var request = {};
+            request['current_password'] = $('#id_current_password').val();
+            request['new_password'] = $('#id_new_password').val();
+            request['repeate_password'] = $('#id_repeate_password').val();
+            
+			//alert(JSON.stringify(request));
+			$.when(modpwd(request)).done(function(data){
+				if(data.ERRORCODE == 0) {
+					//showModal();
+					window.location.href = "/login/";
+				} else {
+					//showModal();
+					addAlert(data.CH + " : " + data.msg);
+				}
+			});
+			return false;
+		}
+        
+        function modpwd(request) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/modpwd/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: JSON.stringify(request),
+				//async : false,
+				beforeSend:function(XMLHttpRequest){
+				   document.getElementById('id_loading').style.display = "block";
+				},
+				success: function(data){
+					document.getElementById('id_loading').style.display = "none";
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+    </script>
+</div>
+{% endblock %}
+</body>
+</html>
+

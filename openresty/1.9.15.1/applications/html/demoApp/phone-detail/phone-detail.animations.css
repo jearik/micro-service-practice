@@ -1,0 +1,24 @@
+/* View: Phone detail */
+phone-detail .phone {
+  background-color: white;
+  display: none;
+  float: left;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  padding: 2em;
+  width: 400px;
+}
+
+phone-detail .phone:first-child {
+  display: block;
+}
+
+phone-detail .phone-images {
+  background-color: white;
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 450px;
+}

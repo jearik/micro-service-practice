@@ -1,0 +1,45 @@
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script><br/>
+****************************************************************************************************<br/>
+job_id : 10<br/>
+PLAY [Hello World]<br/>
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.89 GATHERING FACTS<br/>
+<script type="text/javascript" src="../../static/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".toggle").click(function(){
+  var id = $(this).attr('id');
+  //alert(id);
+  $("#pad_"+id).toggle();
+  });
+});
+</script>
+RUNNER_ON_OK 10.20.0.88 GATHERING FACTS<br/>
+TASK [Print datetime now]<br/>
+<div style="background-color:green;" class="toggle" id="8b68d224-dd59-46d2-91e9-3b6354695650">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_8b68d224-dd59-46d2-91e9-3b6354695650">{<br/>    "cmd": "date && echo 0123456789 && sleep 10", <br/>    "end": "2015-06-26 15:03:15.990085", <br/>    "stdout": "Fri Jun 26 15:03:05 CST 2015\n0123456789", <br/>    "changed": true, <br/>    "start": "2015-06-26 15:03:05.985508", <br/>    "delta": "0:00:10.004577", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo 0123456789 && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="861ce58d-a97a-42bb-865b-68cb415f8f89">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_861ce58d-a97a-42bb-865b-68cb415f8f89">{<br/>    "cmd": "date && echo 0123456789 && sleep 10", <br/>    "end": "2015-06-27 15:02:12.870370", <br/>    "stdout": "Sat Jun 27 15:02:02 CST 2015\n0123456789", <br/>    "changed": true, <br/>    "start": "2015-06-27 15:02:02.866306", <br/>    "delta": "0:00:10.004064", <br/>    "stderr": "", <br/>    "rc": 0, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "date && echo 0123456789 && sleep 10"<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+TASK [debug msg="{{ tmpb }}"]<br/>
+<div style="background-color:green;" class="toggle" id="552a2c8c-04ef-4ce0-88b6-47feb76aa8e1">RUNNER_ON_OK 10.20.0.88</div><div style="display:none;" id="pad_552a2c8c-04ef-4ce0-88b6-47feb76aa8e1">{<br/>    "msg": "{u'changed': True, u'end': u'2015-06-27 15:02:12.870370', u'stdout': u'Sat Jun 27 15:02:02 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-27 15:02:02.866306', u'stderr': u'', u'delta': u'0:00:10.004064', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Sat Jun 27 15:02:02 CST 2015', u'0123456789'], u'warnings': []}", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"{u'changed': True, u'end': u'2015-06-27 15:02:12.870370', u'stdout': u'Sat Jun 27 15:02:02 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-27 15:02:02.866306', u'stderr': u'', u'delta': u'0:00:10.004064', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Sat Jun 27 15:02:02 CST 2015', u'0123456789'], u'warnings': []}\""<br/>    }<br/>}</div><br/>
+<div style="background-color:green;" class="toggle" id="228506d4-46e6-4e4a-8cee-356304625c01">RUNNER_ON_OK 10.20.0.89</div><div style="display:none;" id="pad_228506d4-46e6-4e4a-8cee-356304625c01">{<br/>    "msg": "{u'changed': True, u'end': u'2015-06-26 15:03:15.990085', u'stdout': u'Fri Jun 26 15:03:05 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-26 15:03:05.985508', u'stderr': u'', u'delta': u'0:00:10.004577', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Fri Jun 26 15:03:05 CST 2015', u'0123456789'], u'warnings': []}", <br/>    "verbose_always": true, <br/>    "invocation": {<br/>        "module_name": "debug", <br/>        "module_args": "msg=\"{u'changed': True, u'end': u'2015-06-26 15:03:15.990085', u'stdout': u'Fri Jun 26 15:03:05 CST 2015\\n0123456789', u'cmd': u'date && echo 0123456789 && sleep 10', u'rc': 0, u'start': u'2015-06-26 15:03:05.985508', u'stderr': u'', u'delta': u'0:00:10.004577', 'invocation': {'module_name': u'shell', 'module_args': u'date && echo 0123456789 && sleep 10'}, 'stdout_lines': [u'Fri Jun 26 15:03:05 CST 2015', u'0123456789'], u'warnings': []}\""<br/>    }<br/>}</div><br/>
+TASK [myhandler]<br/>
+<div style="background-color:red;" class="toggle" id="63a483e1-bb62-42d3-a420-160951155995">RUNNER_ON_FAILED 10.20.0.89</div><div style="display:none;" id="pad_63a483e1-bb62-42d3-a420-160951155995">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-26 15:03:16.337272", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-26 15:03:16.335132", <br/>    "delta": "0:00:00.002140", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<div style="background-color:red;" class="toggle" id="fcfc651a-ef2f-4037-b6ae-8f75bc7aad8a">RUNNER_ON_FAILED 10.20.0.88</div><div style="display:none;" id="pad_fcfc651a-ef2f-4037-b6ae-8f75bc7aad8a">{<br/>    "cmd": "echoaaa \"this is myhandler\"", <br/>    "end": "2015-06-27 15:02:13.188851", <br/>    "stdout": "", <br/>    "changed": true, <br/>    "start": "2015-06-27 15:02:13.186921", <br/>    "delta": "0:00:00.001930", <br/>    "stderr": "/bin/sh: echoaaa: command not found", <br/>    "rc": 127, <br/>    "invocation": {<br/>        "module_name": "shell", <br/>        "module_args": "echoaaa \"this is myhandler\""<br/>    }, <br/>    "warnings": []<br/>}</div><br/>
+<a href='/getPlaybookJobLogByHost/?job_id=10&host=10.20.0.89'>Host: 10.20.0.89</a>, ok: 3, failures: 1, unreachable: 0, changed: 1, skipped: 0<br/><a href='/getPlaybookJobLogByHost/?job_id=10&host=10.20.0.88'>Host: 10.20.0.88</a>, ok: 3, failures: 1, unreachable: 0, changed: 1, skipped: 0<br/><br/>

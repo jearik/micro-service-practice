@@ -1,0 +1,51 @@
+/* View: Phone detail */
+phone-detail .phone {
+    background-color: white;
+    border: 1px solid black;
+    float: left;
+    height: 400px;
+    margin-bottom: 2em;
+    margin-right: 3em;
+    padding: 2em;
+    width: 400px;
+}
+
+phone-detail .phone-thumbs {
+    list-style: none;
+    margin: 0;
+}
+
+phone-detail .phone-thumbs img {
+    height: 100px;
+    padding: 1em;
+    width: 100px;
+}
+
+phone-detail .phone-thumbs li {
+    background-color: white;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1em;
+}
+
+phone-detail .specs {
+    clear: both;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+phone-detail .specs dt {
+    font-weight: bold;
+}
+
+phone-detail .specs > li {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+}
+
+phone-detail .specs > li > span {
+    font-size: 1.2em;
+    font-weight: bold;
+}

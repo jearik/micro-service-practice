@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="JobComposer" name="keywords" />
+	<meta content="JobComposer" name="description" />
+	<meta name="generator" content="JobComposer"/>
+	<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+	<title>JobComposer-Malakas</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<style type="text/css">
+        /* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+            height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/" style="font-size:18px;font-weight:bold;color:#FFF;"><!--<img alt="Brand" src="/static/images/favicon.ico" title="junneyang.sinaapp.com" style="margin-left:5px;height:24px;width:24px;"/>-->Malakas</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse js-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+                    <li class="active"><a href="jobcomposer.html">JobComposer</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    <div style="min-height:100%;height: auto !important;height: 100%;margin: 0 auto -130px;">
+        <div id="myDiagramDiv" style="border: solid 1px black; width:1000px; height:500px;background-color: #DAE4E4;"></div>
+        <div class="push" style="height:130px;clear: both;"></div>
+    </div>
+    <footer class="footer" style="height:130px;margin-bottom:0px;padding-top:20px;background-color:black;clear:both;">
+		<div class="container text-center">
+			<p class="text-muted">Copyright ©2015 NSFOCUS. <a href="http://www.nsfocus.com">绿盟科技</a>. All Rights Reserved. </p>
+			<p class="text-muted">Technical Support : <a href="#">nscloud</a></p>
+			<p class="text-muted">京ICP备14004349号 京公网安备110108002872号 京ICP证110355号</p><br/>
+		</div>
+	</footer>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+    <script src="/static/js/model/GoJS-1.6.4/release/go.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            editorInit();
+		});
+        function editorInit() {
+            var $ = go.GraphObject.make;  // for conciseness in defining templates
+            myDiagram = $(go.Diagram, "myDiagramDiv",  // create a Diagram for the DIV HTML element
+                  {
+                    initialContentAlignment: go.Spot.Center,  // center the content
+                    // allow double-click in background to create a new node
+                      "clickCreatingTool.archetypeNodeData": { text: "Node", color: "white" },
+
+                      // allow Ctrl-G to call groupSelection()
+                      "commandHandler.archetypeGroupData": { text: "Group", isGroup: true, color: "blue" },
+                    "undoManager.isEnabled": true  // enable Ctrl-Z to undo and Ctrl-Y to redo
+                  });
+            
+            // Define the appearance and behavior for Nodes:
+
+            // First, define the shared context menu for all Nodes, Links, and Groups.
+
+            // To simplify this code we define a function for creating a context menu button:
+            function makeButton(text, action, visiblePredicate) {
+              return $("ContextMenuButton",
+                       $(go.TextBlock, text),
+                       { click: action },
+                       // don't bother with binding GraphObject.visible if there's no predicate
+                       visiblePredicate ? new go.Binding("visible", "", visiblePredicate).ofObject() : {});
+            }
+
+            // a context menu is an Adornment with a bunch of buttons in them
+            var partContextMenu =
+              $(go.Adornment, "Vertical",
+                  makeButton("Properties",
+                             function(e, obj) {  // OBJ is this Button
+                               var contextmenu = obj.part;  // the Button is in the context menu Adornment
+                               var part = contextmenu.adornedPart;  // the adornedPart is the Part that the context menu adorns
+                               // now can do something with PART, or with its data, or with the Adornment (the context menu)
+                               if (part instanceof go.Link) alert(linkInfo(part.data));
+                               else if (part instanceof go.Group) alert(groupInfo(contextmenu));
+                               else alert(nodeInfo(part.data));
+                             }),
+                  makeButton("Cut",
+                             function(e, obj) { e.diagram.commandHandler.cutSelection(); },
+                             function(o) { return o.diagram.commandHandler.canCutSelection(); }),
+                  makeButton("Copy",
+                             function(e, obj) { e.diagram.commandHandler.copySelection(); },
+                             function(o) { return o.diagram.commandHandler.canCopySelection(); }),
+                  makeButton("Paste",
+                             function(e, obj) { e.diagram.commandHandler.pasteSelection(e.diagram.lastInput.documentPoint); },
+                             function(o) { return o.diagram.commandHandler.canPasteSelection(); }),
+                  makeButton("Delete",
+                             function(e, obj) { e.diagram.commandHandler.deleteSelection(); },
+                             function(o) { return o.diagram.commandHandler.canDeleteSelection(); }),
+                  makeButton("Undo",
+                             function(e, obj) { e.diagram.commandHandler.undo(); },
+                             function(o) { return o.diagram.commandHandler.canUndo(); }),
+                  makeButton("Redo",
+                             function(e, obj) { e.diagram.commandHandler.redo(); },
+                             function(o) { return o.diagram.commandHandler.canRedo(); }),
+                  makeButton("Group",
+                             function(e, obj) { e.diagram.commandHandler.groupSelection(); },
+                             function(o) { return o.diagram.commandHandler.canGroupSelection(); }),
+                  makeButton("Ungroup",
+                             function(e, obj) { e.diagram.commandHandler.ungroupSelection(); },
+                             function(o) { return o.diagram.commandHandler.canUngroupSelection(); })
+              );
+
+            function nodeInfo(d) {  // Tooltip info for a node data object
+              var str = "Node " + d.key + ": " + d.text + "\n";
+              if (d.group)
+                str += "member of " + d.group;
+              else
+                str += "top-level node";
+              return str;
+            }
+    
+            // define a simple Node template
+            myDiagram.nodeTemplate =
+              $(go.Node, "Auto",  // the Shape will go around the TextBlock
+                { locationSpot: go.Spot.Center },
+                { background: "#44CCFF" },
+                $(go.Shape, "RoundedRectangle",
+                    {
+                    fill: "white", // the default fill, if there is no data-binding
+                    portId: "", cursor: "pointer",  // the Shape is the port, not the whole Node
+                    // allow all kinds of links from and to this port
+                    fromLinkable: true, fromLinkableSelfNode: true, fromLinkableDuplicates: true,
+                    toLinkable: true, toLinkableSelfNode: true, toLinkableDuplicates: true
+                  },
+                  // Shape.fill is bound to Node.data.color
+                  new go.Binding("fill", "color")),
+                $(go.Picture,
+                  // Pictures should normally have an explicit width and height.
+                  // This picture has a red background, only visible when there is no source set
+                  // or when the image is partially transparent.
+                  { margin: 10, width: 50, height: 50, background: "red" },
+                  // Picture.source is data bound to the "source" attribute of the model data
+                  new go.Binding("source")),
+                $(go.TextBlock, "Default Text",
+                    {
+                    font: "bold 14px sans-serif",
+                    stroke: '#333',
+                    margin: 6,  // make some extra space for the shape around the text
+                    isMultiline: true,  // don't allow newlines in text
+                    editable: true  // allow in-place editing by user
+                  },
+                  { margin: 12, stroke: "white", font: "bold 16px sans-serif" },  // some room around the text
+                  
+                  { // this tooltip Adornment is shared by all nodes
+                      toolTip:
+                        $(go.Adornment, "Auto",
+                          $(go.Shape, { fill: "#FFFFCC" }),
+                          $(go.TextBlock, { margin: 4 },  // the tooltip shows the result of calling nodeInfo(data)
+                            new go.Binding("text", "", nodeInfo))
+                        ),
+                      // this context menu Adornment is shared by all nodes
+                      contextMenu: partContextMenu
+                    },
+                    
+                  // TextBlock.text is bound to Node.data.key
+                  new go.Binding("text", "text").makeTwoWay())  // the label shows the node data's text
+                  
+              );
+
+            // Define the appearance and behavior for Links:
+            function linkInfo(d) {  // Tooltip info for a link data object
+              return "Link:\nfrom " + d.from + " to " + d.to;
+            }
+            
+            // but use the default Link template, by not setting Diagram.linkTemplate
+            // define a Link template that routes orthogonally, with no arrowhead
+            myDiagram.linkTemplate =
+              $(go.Link,
+                // default routing is go.Link.Normal
+                // default corner is 0
+                { toShortLength: 3, relinkableFrom: true, relinkableTo: true },  // allow the user to relink existing links
+                //{ routing: go.Link.Normal, corner: 5 , curve: go.Link.None},
+                $(go.Shape, { strokeWidth: 3, stroke: "#555" }), // the link shape
+
+                // if we wanted an arrowhead we would also add another Shape with toArrow defined:
+                $(go.Shape, { toArrow: "Standard", stroke: null }),
+                { // this tooltip Adornment is shared by all links
+                  toolTip:
+                    $(go.Adornment, "Auto",
+                      $(go.Shape, { fill: "#FFFFCC" }),
+                      $(go.TextBlock, { margin: 4 },  // the tooltip shows the result of calling linkInfo(data)
+                        new go.Binding("text", "", linkInfo))
+                    ),
+                  // the same context menu Adornment is shared by all links
+                  contextMenu: partContextMenu
+                }
+                );
+    
+                // Define the appearance and behavior for Groups:
+
+    function groupInfo(adornment) {  // takes the tooltip or context menu, not a group node data object
+      var g = adornment.adornedPart;  // get the Group that the tooltip adorns
+      var mems = g.memberParts.count;
+      var links = 0;
+      g.memberParts.each(function(part) {
+        if (part instanceof go.Link) links++;
+      });
+      return "Group " + g.data.key + ": " + g.data.text + "\n" + mems + " members including " + links + " links";
+    }
+
+    // Groups consist of a title in the color given by the group node data
+    // above a translucent gray rectangle surrounding the member parts
+    myDiagram.groupTemplate =
+      $(go.Group, "Vertical",
+        { selectionObjectName: "PANEL",  // selection handle goes around shape, not label
+          ungroupable: true },  // enable Ctrl-Shift-G to ungroup a selected Group
+        $(go.TextBlock,
+          {
+            font: "bold 19px sans-serif",
+            isMultiline: false,  // don't allow newlines in text
+            editable: true  // allow in-place editing by user
+          },
+          new go.Binding("text", "text").makeTwoWay(),
+          new go.Binding("stroke", "color")),
+        $(go.Panel, "Auto",
+          { name: "PANEL" },
+          $(go.Shape, "Rectangle",  // the rectangular shape around the members
+            { fill: "rgba(128,128,128,0.2)", stroke: "gray", strokeWidth: 3 }),
+          $(go.Placeholder, { padding: 10 })  // represents where the members are
+        ),
+        { // this tooltip Adornment is shared by all groups
+          toolTip:
+            $(go.Adornment, "Auto",
+              $(go.Shape, { fill: "#FFFFCC" }),
+              $(go.TextBlock, { margin: 4 },
+                // bind to tooltip, not to Group.data, to allow access to Group properties
+                new go.Binding("text", "", groupInfo).ofObject())
+            ),
+          // the same context menu Adornment is shared by all groups
+          contextMenu: partContextMenu
+        }
+      );
+
+    // Define the behavior for the Diagram background:
+
+    function diagramInfo(model) {  // Tooltip info for the diagram's model
+      return "Model:\n" + model.nodeDataArray.length + " nodes, " + model.linkDataArray.length + " links";
+    }
+
+    // provide a tooltip for the background of the Diagram, when not over any Part
+    myDiagram.toolTip =
+      $(go.Adornment, "Auto",
+        $(go.Shape, { fill: "#FFFFCC" }),
+        $(go.TextBlock, { margin: 4 },
+          new go.Binding("text", "", diagramInfo))
+      );
+
+    // provide a context menu for the background of the Diagram, when not over any Part
+    myDiagram.contextMenu =
+      $(go.Adornment, "Vertical",
+          makeButton("Paste",
+                     function(e, obj) { e.diagram.commandHandler.pasteSelection(e.diagram.lastInput.documentPoint); },
+                     function(o) { return o.diagram.commandHandler.canPasteSelection(); }),
+          makeButton("Undo",
+                     function(e, obj) { e.diagram.commandHandler.undo(); },
+                     function(o) { return o.diagram.commandHandler.canUndo(); }),
+          makeButton("Redo",
+                     function(e, obj) { e.diagram.commandHandler.redo(); },
+                     function(o) { return o.diagram.commandHandler.canRedo(); })
+      );
+      
+            // create the model data that will be represented by Nodes and Links
+            myDiagram.model = new go.GraphLinksModel(
+            [
+              { key: "Alpha", text: "Alpha", color: "lightblue", source: "/static/js/model/GoJS-1.6.4/samples/images/50x40.png" },
+              { key: "Beta", text: "Beta", color: "orange", source: "/static/js/model/GoJS-1.6.4/samples/images/55x55.png" },
+              { key: "Gamma", text: "Gamma", color: "lightgreen", source: "/static/js/model/GoJS-1.6.4/samples/images/60x90.png"},
+              { key: "Delta", text: "Delta", color: "pink" }
+            ],
+            [
+              { from: "Alpha", to: "Beta" },
+              { from: "Alpha", to: "Beta" },
+              { from: "Alpha", to: "Beta" },
+              { from: "Alpha", to: "Gamma" },
+              { from: "Alpha", to: "Gamma" },
+              { from: "Alpha", to: "Gamma" },
+              { from: "Beta", to: "Gamma" },
+              { from: "Beta", to: "Gamma" },
+              { from: "Beta", to: "Beta" },
+              { from: "Alpha", to: "Beta" },
+              { from: "Alpha", to: "Beta" },
+              { from: "Gamma", to: "Delta" },
+              { from: "Delta", to: "Alpha" },
+              { from: "Delta", to: "Alpha" },
+              { from: "Delta", to: "Alpha" }
+            ]);
+            
+            // define a TreeLayout that flows from top to bottom
+            myDiagram.layout =
+              $(go.LayeredDigraphLayout,
+                { direction: 0});
+        }
+	</script>
+</body>
+</html>

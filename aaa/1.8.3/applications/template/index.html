@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="首页" name="keywords" />
+	<meta content="首页" name="description" />
+	<meta name="generator" content="首页"/>
+	<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
+	<title>aaa</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/docs.min.css" type="text/css"/>
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="id_header" style="width:100%;"></div>
+    <div style="min-height:100%;height: auto !important;height: 100%;margin: 0 auto -130px;">
+        <div class="bs-docs-header" id="content">
+            <div class="container">
+                <h1>aaa</h1>
+                <p >Open service for authentication and authorization with <a style="color:white;" href="http://oauth.net/2/">OAuth2.0</a> , which focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, mobile phones, and living room devices. </p>
+				<p >Go ahead and register your applications !</p>
+                <!-- auth_demo/-->
+                <br/><p><a class="btn btn-outline-inverse btn-lg" href="oauth/applications/register/" role="button" style="font-family:微软雅黑;">Register Now</a></p>
+                <div id="carbonads-container">
+                    <div class="carbonad">
+                        <div id="azcarbon">
+                            <img style="display:inline;width:72px;height:72px;" src="static/images/share/oauth-2-sm.png"></img><br/><br/>
+                            <span style="font-size:16px;">aaa made simple.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push" style="height:130px;clear: both;"></div>
+    </div>
+	<div id="id_footer" style="width:100%;margin-top:20px;"></div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+					<h4 class="modal-title" id="myModalLabel">Info</h4>
+				</div>
+				<div class="modal-body text-center">
+					Operation Success
+				</div>
+				<!--<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(e) {
+            var header_url = "header/";
+            var footer_url = "footer/";
+            $('#id_header').load(header_url, function(){
+                    $("#id_menu_home").addClass("active");
+                }
+            );
+            $('#id_footer').load(footer_url);
+		});
+		$(document).ready(function(){
+			// set up hover panels
+			// although this can be done without JavaScript, we've attached these events
+			// because it causes the hover to be triggered when the element is tapped on a touch device
+			$('.hover').hover(function(){
+				$(this).addClass('flip');
+			},function(){
+				$(this).removeClass('flip');
+			});
+		});
+		function subscribe() {
+			var email = $('#email').val();
+			if (email == "") {
+				return false;
+			}
+			$.when(submitNewsletter(email)).done(function(data){
+				/*$.each(data,function(n,item) {
+				});*/
+				if(data.retcode == 0) {
+					$('#collapseNewsletter').collapse('hide');
+					showModal();
+				} else {
+					showModal();
+				}
+			});
+			return false;
+		}
+		function showModal(){
+			$('#myModal').modal('show');
+		}
+		function hideModal(){
+			$('#myModal').modal('hide');
+		}
+		$(document).ready(function(){
+			$('#myModal').on('shown.bs.modal', function() {
+				// remove previous timeouts if it's opened more than once.
+				//clearTimeout(myModalTimeout);
+				myModalTimeout = setTimeout(function() {
+					hideModal();
+				}, 2000);
+			});
+		});
+		$(document).ready(function(){
+			//Handles menu drop down
+			$('.dropdown-menu').find('form').click(function (e) {
+				e.stopPropagation();
+			});
+		});
+		function submitNewsletter(email) {
+			var defer = $.Deferred();
+			var data = {};
+			data['email'] = email;
+			$.ajax({
+				type: "POST",
+				url : '/submitNewsletter/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: JSON.stringify(data),
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function loginWithDefault(){
+			window.location = "/";
+			return false;
+		}
+	</script>
+</body>
+</html>
