@@ -12,7 +12,7 @@
 * Ansible: 使用Ansible作为IAAS层资源自动化管理工具。
 * K8S/Mesos/Marathon: 使用开源容器管理平台作为分布式系统运维自动化工具。
 
-### [推荐] 微服务系列文章参考：    
+### [推荐博文] 微服务系列文章参考：    
 * 微服务架构的优势与不足：http://blog.daocloud.io/microservices-1/    
 * 使用 API 网关构建微服务：http://blog.daocloud.io/microservices-2/    
 * 深入微服务架构的进程间通信：http://blog.daocloud.io/microservices-3/    
